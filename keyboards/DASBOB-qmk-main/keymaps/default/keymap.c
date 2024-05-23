@@ -8,9 +8,10 @@ enum dasbob_layers {
   _CIRC,
   _TREMA,
   _FUN,
-  _MOVE
+  _MOVE,
 };
 
+//COMBO
 const uint16_t PROGMEM combo_agrv[] = {CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_q[] = {CA_D, CA_L, COMBO_END};
 const uint16_t PROGMEM combo_underline[] = {CA_Y, CA_EGRV, COMBO_END};
@@ -26,24 +27,119 @@ combo_t key_combos[] = {
     COMBO(combo_ugrv, CA_UGRV)
 };
 
+//MACRO
+enum custom_keycodes {
+    ACIRC = SAFE_RANGE
+    ECIRC,
+    ICIRC,
+    OCIRC,
+    UCIRC,
+    YCIRC
+
+    ATREM,
+    ETREM,
+    UTREM,
+    ITREM,
+    YTREM,
+    OTREM,
+
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    //CIRC
+    case ACIRC:
+        if (record->event.pressed) {
+            register_code(CA_CIRC);
+            register_code(CA_A);
+        }
+        break;
+
+    case ECIRC:
+        if (record->event.pressed) {
+            register_code(CA_CIRC);
+            register_code(CA_E);
+        }
+        break;
+
+    case ICIRC:
+        if (record->event.pressed) {
+           register_code(CA_CIRC);
+            register_code(CA_I);
+        }
+        break;
+    
+    case OCIRC:
+        if (record->event.pressed) {
+            register_code(CA_CIRC);
+            register_code(CA_O);
+        }
+        break;
+
+    case UCIRC:
+        if (record->event.pressed) {
+            register_code(CA_CIRC);
+            register_code(CA_U);
+        }
+        break;
+
+    case YCIRC:
+        if (record->event.pressed) {
+            register_code(CA_CIRC);
+            register_code(CA_Y);
+        }
+        break;
+
+    //TREMA
+    case ATREM:
+        if (record->event.pressed) {
+            register_code(CA_DIAE);
+            register_code(CA_A);
+        }
+        break;
+
+    case ETREM:
+        if (record->event.pressed) {
+            register_code(CA_DIAE);
+            register_code(CA_E);
+        }
+        break;
+
+    case ITREM:
+        if (record->event.pressed) {
+           register_code(CA_DIAE);
+            register_code(CA_I);
+        }
+        break;
+    
+    case OTREM:
+        if (record->event.pressed) {
+            register_code(CA_DIAE);
+            register_code(CA_O);
+        }
+        break;
+
+    case UTREM:
+        if (record->event.pressed) {
+            register_code(CA_DIAE);
+            register_code(CA_U);
+        }
+        break;
+
+    case YTREM:
+        if (record->event.pressed) {
+            register_code(CA_DIAE);
+            register_code(CA_Y);
+        }
+        break;
+    }
+    return true;
+};
+
+
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-     /*
-      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-      * │ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ A │ S │ D │ F │ G │       │ H │ J │ K │ L │ ; │
-      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-      * │ Z │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │
-      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-      *           ┌───┐                   ┌───┐
-      *           │DEL├───┐           ┌───┤ESC│
-      *           └───┤SPC├───┐   ┌───┤BSP├───┘
-      *               └───│LOW│   │RSE├───┘
-      *                   └───┘   └───┘
-      */
-
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
         CA_Z,    CA_J,              CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
@@ -92,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
                                    KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
-    ),
+    )
 
 
 
