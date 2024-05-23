@@ -266,7 +266,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUMBER] = LAYOUT_split_3x5_3(
        KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,        CA_9,             CA_DOT,            XXXXXXX,        XXXXXXX,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,        CA_1,             CA_3,              CA_5,           CA_7,
-       XXXXXXX,     XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,        XXXXXXX,          XXXXXXX,           XXXXXXX,        TG(5),
+       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         XXXXXXX,            XXXXXXX,        CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
                                TG(5),           TG(0),           CA_COLN,            CA_EQL,         TG(3),            KC_BSPC
     ),
 
