@@ -50,86 +50,160 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //CIRC
     case ACIRC:
         if (record->event.pressed) {
-            register_code(CA_CIRC);
-            register_code(CA_A);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_A))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_A);
+            }
         }
         break;
 
     case ECIRC:
         if (record->event.pressed) {
-            register_code(CA_CIRC);
-            register_code(CA_E);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_E))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_E);
+            }
         }
         break;
 
     case ICIRC:
         if (record->event.pressed) {
-           register_code(CA_CIRC);
-            register_code(CA_I);
+           if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_I))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_I);
+            }
         }
         break;
     
     case OCIRC:
         if (record->event.pressed) {
-            register_code(CA_CIRC);
-            register_code(CA_O);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_O))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_O);
+            }
         }
         break;
 
     case UCIRC:
         if (record->event.pressed) {
-            register_code(CA_CIRC);
-            register_code(CA_U);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_U))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_U);
+            }
         }
         break;
 
     case YCIRC:
         if (record->event.pressed) {
-            register_code(CA_CIRC);
-            register_code(CA_Y);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_CIRC);
+                tap_code(S(CA_Y))
+            }else{
+                tap_code(CA_CIRC);
+                tap_code(CA_Y);
+            }
         }
         break;
 
     //TREMA
     case ATREM:
         if (record->event.pressed) {
-            register_code(CA_DIAE);
-            register_code(CA_A);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_A))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_A);
+            }
         }
         break;
 
     case ETREM:
         if (record->event.pressed) {
-            register_code(CA_DIAE);
-            register_code(CA_E);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_E))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_E);
+            }
         }
         break;
 
     case ITREM:
         if (record->event.pressed) {
-           register_code(CA_DIAE);
-            register_code(CA_I);
+           if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_I))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_I);
+            }
         }
         break;
     
     case OTREM:
         if (record->event.pressed) {
-            register_code(CA_DIAE);
-            register_code(CA_O);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_O))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_O);
+            }
         }
         break;
 
     case UTREM:
         if (record->event.pressed) {
-            register_code(CA_DIAE);
-            register_code(CA_U);
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_U))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_U);
+            }
         }
         break;
 
     case YTREM:
         if (record->event.pressed) {
-            register_code(CA_DIAE);
-            register_code(CA_Y);
+            
+            if(MOD_MASK_SHIFT){
+                clear_mod();
+                tap_code(CA_DIAE);
+                tap_code(S(CA_Y))
+            }else{
+                tap_code(CA_DIAE);
+                tap_code(CA_Y);
+            }
+            
         }
         break;
     }
@@ -152,42 +226,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
+                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(2),          KC_TRNS
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
        KC_1,     KC_2,              KC_3,            KC_4,            KC_5,               KC_6,         KC_7,             KC_8,            KC_9,              KC_0,
        CK_RST,  RALT_T(XXXXXXX),   LCTL_T(XXXXXXX), LSFT_T(XXXXXXX), KC_PSCR,           KC_MINS,      LSFT_T(KC_EQL),   LCTL_T(KC_GRV),  RALT_T(KC_QUOT),    KC_BSLS,
-       CK_TOGG,  CK_UP,           CK_DOWN,         LCTL(KC_C),      LCTL(KC_V),         KC_TAB,      XXXXXXX,          XXXXXXX,         XXXXXXX,           XXXXXXX,
-                                    KC_TRNS,         KC_TRNS,         KC_TAB,             KC_ENT,       KC_TRNS,          KC_TRNS
+       CK_TOGG,  CK_UP,             CK_DOWN,          LCTL(KC_C),      LCTL(KC_V),         KC_TAB,      XXXXXXX,          XXXXXXX,         XXXXXXX,           XXXXXXX,
+                                    KC_TRNS,        TG(0),         KC_TAB,             KC_ENT,       TG(5),          KC_TRNS
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
+                                   TG(4),         TG(0),         KC_TAB,              KC_ENT,       TG(1),          KC_TRNS
     ),
 
     [_TREMA] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
+                                   XXXXXXX,         TG(0),         KC_TAB,              KC_ENT,       TG(1),          KC_TRNS
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
+                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(6),          KC_TRNS
     ),
 
     [_MOVE] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
+                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       XXXXXXX,          KC_TRNS
     )
 
 
