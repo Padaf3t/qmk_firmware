@@ -3,10 +3,10 @@
 
 enum dasbob_layers {
   _OPTIMOT,
-  _NUMBER,
-  _SYM,
   _CIRC,
   _TREMA,
+  _NUMBER,
+  _SYM,
   _FUN,
 };
 
@@ -28,6 +28,7 @@ combo_t key_combos[] = {
 
 //MACRO
 enum custom_keycodes {
+    //CIRC
     ACIRC = SAFE_RANGE
     ECIRC,
     ICIRC,
@@ -35,12 +36,15 @@ enum custom_keycodes {
     UCIRC,
     YCIRC
 
+    //TREMA
     ATREM,
     ETREM,
     UTREM,
     ITREM,
     YTREM,
     OTREM,
+
+    //SYMBOL
 
 };
 
