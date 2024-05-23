@@ -43,7 +43,8 @@ enum custom_keycodes {
     OTREM,
 
     //SYMBOL
-
+    TILDE,
+    CIRCON,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -207,6 +208,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             
         }
         break;
+    //SYMBOL
+    case TILDE:
+        if (record->event.pressed) {
+       
+            tap_code(CA_DTIL);
+            tap_code(KC_SPACE);
+            
+        }
+        break;
+
+    case CIRCON:
+        if (record->event.pressed) {
+       
+            tap_code(CA_CIRC);
+            tap_code(KC_SPACE);
+            
+        }
+        break;
     }
     return true;
 };
@@ -238,17 +257,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-                               KC_RALT,         TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(4),             KC_BSPC
+        CA_QUOT,    CA_LABK,   CA_RABK,         CA_DQUO,         CA_DOT,             CA_AMPR,       XXXXXXX,           CA_LBRC,           CA_RBRC,        CA_PERC,
+        CA_EXLM,    CA_MINS,   CA_PLUS,         CA_EQL,          CA_HASH,            CA_PIPE,       CA_COLN,           CA_LPRN,           CA_RPRN,        CA_QUES,
+        CIRCON,     CA_SLSH,   CA_ASTR,         CA_BSLS,         XXXXXXX,            TILDE,         CA_DLR,            CA_LCBR,           CA_RCBR,        CA_AT,
+                               TG(5),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(4),             KC_BSPC
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
-       XXXXXXX,     XXXXXXX,   XXXXXXX,        CA_8,            XXXXXXX,            XXXXXXX,        CA_9,              XXXXXXX,           XXXXXXX,         XXXXXXX,
-       CA_6,        CA_4,      CA_2,           CA_0,            XXXXXXX,            XXXXXXX,        CA_1,              CA_3,              CA_5,            CA_7,
-       XXXXXXX,     XXXXXXX,   XXXXXXX,        XXXXXXX,         XXXXXXX,            XXXXXXX,        XXXXXXX,           XXXXXXX,           XXXXXXX,         XXXXXXX,
-                               KC_RALT,        TG(0),           KC_LGUI,            OSM(MOD_LCTL),  TG(5),             KC_BSPC
+       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_8,            XXXXXXX,            XXXXXXX,        CA_9,              XXXXXXX,           XXXXXXX,        XXXXXXX,
+       CA_6,        CA_4,      CA_2,            CA_0,            XXXXXXX,            XXXXXXX,        CA_1,              CA_3,              CA_5,           CA_7,
+       XXXXXXX,     XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,        XXXXXXX,           XXXXXXX,           XXXXXXX,        TG(5),
+                               TG(5),           TG(0),           KC_LGUI,            OSM(MOD_LCTL),  TG(3),             KC_BSPC
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
