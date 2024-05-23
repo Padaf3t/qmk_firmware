@@ -32,7 +32,7 @@ enum custom_keycodes {
     ICIRC,
     OCIRC,
     UCIRC,
-    YCIRC
+    YCIRC,
 
     //TREMA
     ATREM,
@@ -54,7 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_A))
+                tap_code(S(CA_A));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_A);
@@ -67,7 +67,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_E))
+                tap_code(S(CA_E));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_E);
@@ -80,7 +80,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
            if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_I))
+                tap_code(S(CA_I));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_I);
@@ -93,7 +93,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_O))
+                tap_code(S(CA_O));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_O);
@@ -106,7 +106,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_U))
+                tap_code(S(CA_U));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_U);
@@ -119,7 +119,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_CIRC);
-                tap_code(S(CA_Y))
+                tap_code(S(CA_Y));
             }else{
                 tap_code(CA_CIRC);
                 tap_code(CA_Y);
@@ -133,7 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_A))
+                tap_code(S(CA_A));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_A);
@@ -146,7 +146,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_E))
+                tap_code(S(CA_E));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_E);
@@ -159,7 +159,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
            if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_I))
+                tap_code(S(CA_I));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_I);
@@ -172,7 +172,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_O))
+                tap_code(S(CA_O));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_O);
@@ -185,7 +185,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_U))
+                tap_code(S(CA_U));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_U);
@@ -199,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code(CA_DIAE);
-                tap_code(S(CA_Y))
+                tap_code(S(CA_Y));
             }else{
                 tap_code(CA_DIAE);
                 tap_code(CA_Y);
