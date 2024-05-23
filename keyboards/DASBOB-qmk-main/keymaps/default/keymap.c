@@ -215,17 +215,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
-        CA_Z,    CA_J,              CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
-        CA_A,    LCTL_T(CA_I),      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
-        CA_K,    CA_Y,              CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                                    TG(3),           CA_SPC,          OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(1),             KC_BSPC
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
+                               TG(1),           CA_SPC,          OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+    ),
+
+    [_CIRC] = LAYOUT_split_3x5_3(
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
+                               TG(2),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+    ),
+
+    [_TREMA] = LAYOUT_split_3x5_3(
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
+                               TG(1),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(2),          KC_TRNS
+                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(4),          KC_TRNS
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
@@ -235,25 +249,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_TRNS,        TG(0),         KC_TAB,             KC_ENT,       TG(5),          KC_TRNS
     ),
 
-    [_CIRC] = LAYOUT_split_3x5_3(
-        KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
-        KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
-        KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   TG(4),         TG(0),         KC_TAB,              KC_ENT,       TG(1),          KC_TRNS
-    ),
-
-    [_TREMA] = LAYOUT_split_3x5_3(
-        KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
-        KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
-        KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   XXXXXXX,         TG(0),         KC_TAB,              KC_ENT,       TG(1),          KC_TRNS
-    ),
-
     [_FUN] = LAYOUT_split_3x5_3(
         KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
         KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
         KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(1),          KC_TRNS
+                                   KC_TRNS,         TG(0),         KC_TAB,              KC_ENT,       TG(3),          KC_TRNS
     )
 
 
