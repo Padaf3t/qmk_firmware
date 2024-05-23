@@ -12,14 +12,12 @@ enum dasbob_layers {
 
 //COMBO
 const uint16_t PROGMEM combo_agrv[] = {CA_O, CA_EACU, COMBO_END};
-const uint16_t PROGMEM combo_q[] = {CA_D, CA_L, COMBO_END};
 const uint16_t PROGMEM combo_underline[] = {CA_Y, CA_EGRV, COMBO_END};
 const uint16_t PROGMEM combo_dash[] = {CA_EGRV, CA_COMM, COMBO_END};
 const uint16_t PROGMEM combo_cced[] = {CA_M, CA_H, COMBO_END};
 const uint16_t PROGMEM combo_ugrv[] = {CA_C, CA_M, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo_agrv, CA_AGRV),
-    COMBO(combo_q CA_Q),
     COMBO(combo_underline, CA_UNDS),
     COMBO(combo_dash, CA_MINS),
     COMBO(combo_cced, CA_CCED),
@@ -219,21 +217,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
         CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(1),           CA_SPC,          OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
         ACIRC,      ICIRC,     LALT_T(ECIRC)    LGUI_T(UCIRC),   CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       YCIRC,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(2),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
 
     [_TREMA] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
         ATREM,      ITREM,     LALT_T(ETREM),   LGUI_T(UTREM),   CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       YTREM,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(1),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
