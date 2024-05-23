@@ -260,14 +260,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CA_QUOT,    CA_LABK,   CA_RABK,         CA_DQUO,         CA_DOT,             CA_AMPR,       XXXXXXX,           CA_LBRC,           CA_RBRC,        CA_PERC,
         CA_EXLM,    CA_MINS,   CA_PLUS,         CA_EQL,          CA_HASH,            CA_PIPE,       CA_COLN,           CA_LPRN,           CA_RPRN,        CA_QUES,
         CIRCON,     CA_SLSH,   CA_ASTR,         CA_BSLS,         XXXXXXX,            TILDE,         CA_DLR,            CA_LCBR,           CA_RCBR,        CA_AT,
-                               TG(5),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(4),             KC_BSPC
+                               TG(5),           TG(0),           KC_TAB,             KC_ENT,        TG(4),             KC_BSPC
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
-       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_8,            XXXXXXX,            XXXXXXX,        CA_9,              XXXXXXX,           XXXXXXX,        XXXXXXX,
-       CA_6,        CA_4,      CA_2,            CA_0,            XXXXXXX,            XXXXXXX,        CA_1,              CA_3,              CA_5,           CA_7,
-       XXXXXXX,     XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,        XXXXXXX,           XXXXXXX,           XXXXXXX,        TG(5),
-                               TG(5),           TG(0),           KC_LGUI,            OSM(MOD_LCTL),  TG(3),             KC_BSPC
+       KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,        CA_9,             CA_DOT,            XXXXXXX,        XXXXXXX,
+       CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,        CA_1,             CA_3,              CA_5,           CA_7,
+       XXXXXXX,     XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,        XXXXXXX,          XXXXXXX,           XXXXXXX,        TG(5),
+                               TG(5),           TG(0),           CA_COLN,            CA_EQL,         TG(3),            KC_BSPC
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
