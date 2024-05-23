@@ -23,3 +23,4 @@ WPM_ENABLE = yes
 LTO_ENABLE = yes
 SERIAL_DRIVER = vendor
 AUDIO_DRIVER = pwm_hardware
+COMBO_ENABLE = yes

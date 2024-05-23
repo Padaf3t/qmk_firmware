@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include keymap_canadian_multilingual.h
 
 enum dasbob_layers {
   _OPTIMOT,
@@ -9,6 +10,22 @@ enum dasbob_layers {
   _FUN,
   _MOVE
 };
+
+const uint16_t PROGMEM combo_agrv[] = {CA_O, CA_EACU, COMBO_END};
+const uint16_t PROGMEM combo_q[] = {CA_D, CA_L, COMBO_END};
+const uint16_t PROGMEM combo_underline[] = {CA_Y, CA_EGRV, COMBO_END};
+const uint16_t PROGMEM combo_dash[] = {CA_EGRV, CA_COMM, COMBO_END};
+const uint16_t PROGMEM combo_cced[] = {CA_M, CA_H, COMBO_END};
+const uint16_t PROGMEM combo_ugrv[] = {CA_C, CA_M, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo_agrv, CA_AGRV),
+    COMBO(combo_q CA_Q),
+    COMBO(combo_underline, CA_UNDS),
+    COMBO(combo_dash, CA_MINS),
+    COMBO(combo_cced, CA_CCED),
+    COMBO(combo_ugrv, CA_UGRV)
+};
+
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -29,10 +46,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
-        KC_Q,    KC_W,              KC_E,            KC_R,            KC_T,               KC_Y,         KC_U,              KC_I,              KC_O,           KC_P,
-        KC_A,    RALT_T(KC_S),      LCTL_T(KC_D),    LSFT_T(KC_F),    KC_G,               KC_H,         LSFT_T(KC_J),      LCTL_T(KC_K),      RALT_T(KC_L),   KC_SCLN,
-        KC_Z,    KC_X,              KC_C,            KC_V,            KC_B,               KC_N,         KC_M,              KC_COMM,           KC_DOT,         KC_SLSH,
-                                    KC_DEL,          KC_SPC,          MO(1),              MO(2),        KC_BSPC,           KC_ESC
+        CA_Z,    CA_J,              CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_QUOT,        CA_X,
+        CA_A,    LCTL_T(CA_I),      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        CA_K,    CA_Y,              CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
+                                    TG(3),           CA_SPC,          OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(1),             KC_BSPC
+    ),
+
+    [_SYM] = LAYOUT_split_3x5_3(
+        KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
+        KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
+        KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
+                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
@@ -40,13 +64,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        CK_RST,  RALT_T(XXXXXXX),   LCTL_T(XXXXXXX), LSFT_T(XXXXXXX), KC_PSCR,           KC_MINS,      LSFT_T(KC_EQL),   LCTL_T(KC_GRV),  RALT_T(KC_QUOT),    KC_BSLS,
        CK_TOGG,  CK_UP,           CK_DOWN,         LCTL(KC_C),      LCTL(KC_V),         KC_TAB,      XXXXXXX,          XXXXXXX,         XXXXXXX,           XXXXXXX,
                                     KC_TRNS,         KC_TRNS,         KC_TAB,             KC_ENT,       KC_TRNS,          KC_TRNS
-    ),
-
-   [_SYM] = LAYOUT_split_3x5_3(
-        KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
-        KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
-        KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
-                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
