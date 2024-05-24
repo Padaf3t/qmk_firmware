@@ -273,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
-       KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,             CA_DOT,            XXXXXXX,        XXXXXXX,
+       KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,             CA_DOT,            XXXXXXX,        KC_PSCR,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,             CA_3,              CA_5,           CA_7,
        XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         CA_LPRN,            CA_RPRN,       CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
                                TG(5),           TG(0),           LGUI_T(CA_COLN),    LGUI_T(CA_EQL),TG(3),            KC_BSPC
@@ -281,8 +281,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FUN] = LAYOUT_split_3x5_3(
         KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
-        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_INS,             KC_VOLU,       KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
-        KC_UNDO,    KC_CUT,    KC_COPY,         KC_PSTE,         KC_MPLY,            KC_VOLD,       KC_BSPC,           KC_DEL,            KC_F11,         KC_F12,
+        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_INS,             KC_ESC,        KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
+        KC_UNDO,    KC_CUT,    KC_COPY,         KC_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_DEL,            KC_F11,         KC_F12,
                                KC_LGUI,         TG(0),           KC_LSFT,            KC_LCTL,       TG(3),             KC_RALT
     )
 

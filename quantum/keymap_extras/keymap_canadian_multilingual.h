@@ -172,3 +172,6 @@
 #define CA_MUL  RCTL(S(CA_COMM)) // ×
 #define CA_DIV  RCTL(S(CA_DOT))  // ÷
 
+#define CA_REDO RCTL(CA_Y)
+#define CA_SLTA RCTL(CA_A)
+
