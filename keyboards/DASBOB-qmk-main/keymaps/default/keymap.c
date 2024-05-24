@@ -54,6 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_A));
             }else{
@@ -67,6 +68,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_E));
             }else{
@@ -80,6 +82,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
            if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_I));
             }else{
@@ -93,6 +96,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_O));
             }else{
@@ -106,6 +110,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_U));
             }else{
@@ -119,6 +124,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_CIRC);
                 tap_code(S(CA_Y));
             }else{
@@ -133,6 +139,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_A));
             }else{
@@ -146,6 +153,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_E));
             }else{
@@ -159,6 +167,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
            if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_I));
             }else{
@@ -172,6 +181,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_O));
             }else{
@@ -185,6 +195,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_U));
             }else{
@@ -199,6 +210,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             
             if(MOD_MASK_SHIFT){
                 clear_mod();
+                clear_oneshot_mods();
                 tap_code(CA_DIAE);
                 tap_code(S(CA_Y));
             }else{
@@ -267,7 +279,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,        CA_9,             CA_DOT,            XXXXXXX,        XXXXXXX,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,        CA_1,             CA_3,              CA_5,           CA_7,
        XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         XXXXXXX,            XXXXXXX,        CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
-                               TG(5),           TG(0),           CA_COLN,            CA_EQL,         TG(3),            KC_BSPC
+                               TG(5),           TG(0),           LGUI_T(CA_COLN),    LGUI_T(CA_EQL), TG(3),            KC_BSPC
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
