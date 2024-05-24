@@ -252,17 +252,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        ACIRC,      ICIRC,     ECIRC,           UCIRC,           CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
-        CA_K,       YCIRC,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                               TG(2),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+        _______,    _______,   _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
+        ACIRC,      ICIRC,     ECIRC,           UCIRC,           _______,            _______,       _______,           _______,           _______,        _______, 
+        _______,    YCIRC,     _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
+                               TG(2),           TG(0),           _______,            _______,       TG(3),             _______,
     ),
 
     [_TREMA] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        ATREM,      ITREM,     ETREM,           UTREM,           CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
-        CA_K,       YTREM,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                               TG(1),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+        _______,    _______,   _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
+        ATREM,      ITREM,     ETREM,           UTREM,           _______,            _______,       _______,           _______,           _______,        _______, 
+        _______,    YTREM,     _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
+                               TG(1),           TG(0),           _______,            _______,       TG(3),             _______,
     ),
 
     [_SYM] = LAYOUT_split_3x5_3(
