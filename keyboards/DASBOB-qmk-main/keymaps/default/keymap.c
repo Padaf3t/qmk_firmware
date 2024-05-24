@@ -50,11 +50,13 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    mod_state = get_mods();
+
     switch (keycode) {
     //CIRC
     case ACIRC:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_A));
@@ -67,7 +69,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ECIRC:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_E));
@@ -80,7 +82,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ICIRC:
         if (record->event.pressed) {
-           if(get_mods()  & MOD_MASK_SHIFT){
+           if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_I));
@@ -93,7 +95,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     
     case OCIRC:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_O));
@@ -106,7 +108,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case UCIRC:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_U));
@@ -119,7 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case YCIRC:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_Y));
@@ -133,7 +135,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //TREMA
     case ATREM:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_A));
@@ -146,7 +148,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ETREM:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_E));
@@ -159,7 +161,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ITREM:
         if (record->event.pressed) {
-           if(get_mods()  & MOD_MASK_SHIFT){
+           if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_I));
@@ -172,7 +174,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     
     case OTREM:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_O));
@@ -185,7 +187,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case UTREM:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_U));
@@ -198,7 +200,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case YTREM:
         if (record->event.pressed) {
-            if(get_mods()  & MOD_MASK_SHIFT){
+            if(mod_state & MOD_MASK_SHIFT){
                 clear_mod();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_Y));
