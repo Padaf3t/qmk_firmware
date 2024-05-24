@@ -16,12 +16,14 @@ const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
 const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_COMM, COMBO_END};
 const uint16_t PROGMEM combo_cced[] =       {CA_M, CA_H, COMBO_END};
 const uint16_t PROGMEM combo_ugrv[] =       {CA_C, CA_M, COMBO_END};
+const uint16_t PROGMEM combo_capsworld[] =  {CA_L, CA_Q, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo_agrv, CA_AGRV),
     COMBO(combo_underline, CA_UNDS),
     COMBO(combo_dash, CA_MINS),
     COMBO(combo_cced, CA_CCED),
-    COMBO(combo_ugrv, CA_UGRV)
+    COMBO(combo_ugrv, CA_UGRV),
+    COMBO(combo_capsworld, CW_TOGG)
 };
 
 //MACRO
@@ -273,15 +275,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUMBER] = LAYOUT_split_3x5_3(
        KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,        CA_9,             CA_DOT,            XXXXXXX,        XXXXXXX,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,        CA_1,             CA_3,              CA_5,           CA_7,
-       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         XXXXXXX,            XXXXXXX,        CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
+       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         CA_LPRN,            CA_RPRN,        CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
                                TG(5),           TG(0),           LGUI_T(CA_COLN),    LGUI_T(CA_EQL), TG(3),            KC_BSPC
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-        XXXXXXX,    XXXXXXX,   XXXXXXX,         XXXXXXX,         XXXXXXX,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-                               KC_RALT,         TG(0),           KC_LGUI,            OSM(MOD_LCTL), TG(3),             KC_BSPC
+        KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
+        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_INS,             XXXXXXX,       KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
+        XXXXXXX,    KC_CUT,    KC_COPY,         KC_PSTE,         KC_UNDO,            XXXXXXX,       XXXXXXX,           XXXXXXX,           KC_F11,         KC_F12,
+                               KC_RALT,         TG(0),           KC_LGUI,            KC_LCTL,       TG(3),             KC_DEL
     )
 
 
