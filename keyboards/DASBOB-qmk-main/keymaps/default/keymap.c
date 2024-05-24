@@ -246,21 +246,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
         CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                               TG(1),           CA_SPC,          OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+                               TG(1),           MEH_T(CA_SPC),   OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
         CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        ACIRC,      ICIRC,     LALT_T(ECIRC)    LGUI_T(UCIRC),   CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        ACIRC,      ICIRC,     ECIRC,           UCIRC,           CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       YCIRC,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(2),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
 
     [_TREMA] = LAYOUT_split_3x5_3(
         CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        ATREM,      ITREM,     LALT_T(ETREM),   LGUI_T(UTREM),   CA_COMM,            CA_P,          RGUI_T(CA_T),      RALT_T(CA_S),      CA_R,           CA_N,
+        ATREM,      ITREM,     ETREM,           UTREM,           CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       YTREM,     CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(1),           TG(0),           OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
@@ -273,17 +273,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
-       KC_ESC,      XXXXXXX,   CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,             CA_DOT,            XXXXXXX,        KC_PSCR,
-       CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,             CA_3,              CA_5,           CA_7,
-       XXXXXXX,     XXXXXXX,   XXXXXXX,         CA_UNDS,         CA_LPRN,            CA_RPRN,       CA_UNDS,          XXXXXXX,           XXXXXXX,        XXXXXXX,
-                               TG(5),           TG(0),           LGUI_T(CA_COLN),    LGUI_T(CA_EQL),TG(3),            KC_BSPC
+       KC_ESC,      CA_DLR,    CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,              CA_DOT,            CA_HASH,        XXXXXXX,
+       CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,              CA_3,              CA_5,           CA_7,
+       KC_F12,      XXXXXXX,   XXXXXXX,         CA_LPRN,         CA_UNDS,            CA_UNDS,       CA_RPRN,           XXXXXXX,           XXXXXXX,        KC_F11,
+                               TG(5),           TG(0),           CA_COLN,            LALT_T(CA_EQL),TG(3),             KC_BSPC
     ),
 
     [_FUN] = LAYOUT_split_3x5_3(
         KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
-        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_INS,             KC_ESC,        KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
-        KC_UNDO,    KC_CUT,    KC_COPY,         KC_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_DEL,            KC_F11,         KC_F12,
-                               KC_LGUI,         TG(0),           KC_LSFT,            KC_LCTL,       TG(3),             KC_RALT
+        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_ESC,             KC_PSCR,       KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
+        CA_UNDO,    CA_CUT,    CA_COPY,         CA_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_DEL,            KC_INS,         KC_APP,
+                               KC_LGUI,         TG(0),           KC_LSFT,            KC_LCTL,       TG(3),             LCA_T(KC_NO)
     )
 
 

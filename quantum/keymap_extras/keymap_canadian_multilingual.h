@@ -174,4 +174,8 @@
 
 #define CA_REDO RCTL(CA_Y)
 #define CA_SLTA RCTL(CA_A)
+#define CA_UNDO RCTL(CA_Z)
+#define CA_CUT  RCTL(CA_X)
+#define CA_COPY RCTL(CA_C)
+#define CA_PSTE RCTL(CA_V)
 
