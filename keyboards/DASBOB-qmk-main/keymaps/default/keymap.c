@@ -60,6 +60,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 clear_mod();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_A));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_A);
@@ -73,6 +74,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_E));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_E);
@@ -86,6 +88,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_I));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_I);
@@ -99,6 +102,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_O));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_O);
@@ -112,6 +116,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_U));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_U);
@@ -125,6 +130,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_Y));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_CIRC);
                 tap_code16(CA_Y);
@@ -139,6 +145,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_A));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_A);
@@ -152,6 +159,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_E));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_E);
@@ -165,6 +173,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_I));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_I);
@@ -178,6 +187,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_O));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_O);
@@ -191,6 +201,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_U));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_U);
@@ -204,6 +215,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_Y));
+                set_mods(mod_state);
             }else{
                 tap_code16(CA_DIAE);
                 tap_code16(CA_Y);
