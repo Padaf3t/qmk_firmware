@@ -54,9 +54,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //CIRC
     case ACIRC:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT  ){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_A));
             }else{
@@ -68,9 +67,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ECIRC:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_E));
             }else{
@@ -82,9 +80,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ICIRC:
         if (record->event.pressed) {
-           if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+           if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_I));
             }else{
@@ -96,9 +93,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     
     case OCIRC:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_O));
             }else{
@@ -110,9 +106,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case UCIRC:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_U));
             }else{
@@ -124,9 +119,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case YCIRC:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_Y));
             }else{
@@ -139,9 +133,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //TREMA
     case ATREM:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_A));
             }else{
@@ -153,9 +146,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ETREM:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_E));
             }else{
@@ -167,9 +159,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case ITREM:
         if (record->event.pressed) {
-           if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+           if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_I));
             }else{
@@ -181,9 +172,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     
     case OTREM:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_O));
             }else{
@@ -195,9 +185,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case UTREM:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_U));
             }else{
@@ -209,9 +198,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case YTREM:
         if (record->event.pressed) {
-            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
+            if(get_mods()  & MOD_MASK_SHIFT){
                 clear_mod();
-                clear_oneshot_mods();
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_Y));
             }else{
@@ -248,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
         CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          LGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                               TG(1),           MEH_T(CA_SPC),   OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
+                               TG(1),           MEH_T(CA_SPC),   KC_LSFT,            KC_LCTL,       TG(3),             KC_BSPC
     ),
 
     [_CIRC] = LAYOUT_split_3x5_3(
