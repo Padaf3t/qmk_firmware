@@ -70,7 +70,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ECIRC:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_E));
             }else{
@@ -83,7 +83,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ICIRC:
         if (record->event.pressed) {
            if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_I));
             }else{
@@ -96,7 +96,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case OCIRC:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_O));
             }else{
@@ -109,7 +109,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case UCIRC:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_U));
             }else{
@@ -122,7 +122,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case YCIRC:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_CIRC);
                 tap_code16(S(CA_Y));
             }else{
@@ -136,7 +136,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ATREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_A));
             }else{
@@ -149,7 +149,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ETREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_E));
             }else{
@@ -162,7 +162,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ITREM:
         if (record->event.pressed) {
            if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_I));
             }else{
@@ -175,7 +175,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case OTREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_O));
             }else{
@@ -188,7 +188,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case UTREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_U));
             }else{
@@ -201,7 +201,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case YTREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
-                clear_mod();
+                del_mods(MOD_MASK_SHIFT);
                 tap_code16(CA_DIAE);
                 tap_code16(S(CA_Y));
             }else{
