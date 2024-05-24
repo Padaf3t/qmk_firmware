@@ -273,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NUMBER] = LAYOUT_split_3x5_3(
-       KC_ESC,      CA_DLR,    CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,              CA_DOT,            CA_HASH,        XXXXXXX,
+       KC_ESC,      CA_DLR,    CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,              CA_DOT,            CA_HASH,        KC_PSCR,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,              CA_3,              CA_5,           CA_7,
        KC_F12,      XXXXXXX,   XXXXXXX,         CA_LPRN,         CA_UNDS,            CA_UNDS,       CA_RPRN,           XXXXXXX,           XXXXXXX,        KC_F11,
                                TG(5),           TG(0),           CA_COLN,            LALT_T(CA_EQL),TG(3),             KC_BSPC
@@ -281,9 +281,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FUN] = LAYOUT_split_3x5_3(
         KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
-        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_ESC,             KC_PSCR,       KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
-        CA_UNDO,    CA_CUT,    CA_COPY,         CA_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_DEL,            KC_INS,         KC_APP,
-                               KC_LGUI,         TG(0),           KC_LSFT,            KC_LCTL,       TG(3),             LCA_T(KC_NO)
+        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_ESC,             KC_APP,        KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
+        CA_UNDO,    CA_CUT,    CA_COPY,         CA_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_LALT,           KC_INS,         KC_DEL,
+                               KC_LGUI,         TG(0),           LSFT_T(KC_TAB),     LCTL_T(KC_TAB),TG(3),             LCA_T(KC_NO)
     )
 
 
