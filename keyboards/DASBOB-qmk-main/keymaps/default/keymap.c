@@ -246,7 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_OPTIMOT] = LAYOUT_split_3x5_3(
         CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          RGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
+        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          LGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
         CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
                                TG(1),           MEH_T(CA_SPC),   OSM(MOD_LSFT),      OSM(MOD_LCTL), TG(3),             KC_BSPC
     ),
