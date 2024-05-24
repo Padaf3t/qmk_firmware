@@ -57,11 +57,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT  ){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_A));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_A));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_A);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_A);
             }
         }
         break;
@@ -71,11 +71,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_E));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_E));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_E);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_E);
             }
         }
         break;
@@ -85,11 +85,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_I));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_I));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_I);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_I);
             }
         }
         break;
@@ -99,11 +99,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_O));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_O));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_O);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_O);
             }
         }
         break;
@@ -113,11 +113,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_U));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_U));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_U);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_U);
             }
         }
         break;
@@ -127,11 +127,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_CIRC);
-                tap_code(S(CA_Y));
+                tap_code16(CA_CIRC);
+                tap_code16(S(CA_Y));
             }else{
-                tap_code(CA_CIRC);
-                tap_code(CA_Y);
+                tap_code16(CA_CIRC);
+                tap_code16(CA_Y);
             }
         }
         break;
@@ -142,11 +142,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_A));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_A));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_A);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_A);
             }
         }
         break;
@@ -156,11 +156,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_E));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_E));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_E);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_E);
             }
         }
         break;
@@ -170,11 +170,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
            if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_I));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_I));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_I);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_I);
             }
         }
         break;
@@ -184,11 +184,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_O));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_O));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_O);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_O);
             }
         }
         break;
@@ -198,11 +198,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_U));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_U));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_U);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_U);
             }
         }
         break;
@@ -212,11 +212,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT){
                 clear_mod();
                 clear_oneshot_mods();
-                tap_code(CA_DIAE);
-                tap_code(S(CA_Y));
+                tap_code16(CA_DIAE);
+                tap_code16(S(CA_Y));
             }else{
-                tap_code(CA_DIAE);
-                tap_code(CA_Y);
+                tap_code16(CA_DIAE);
+                tap_code16(CA_Y);
             }
             
         }
@@ -224,15 +224,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //SYMBOL
     case TILDE:
         if (record->event.pressed) {
-            tap_code(CA_DTIL);
-            tap_code(KC_SPACE);
+            tap_code16(CA_DTIL);
+            tap_code16(KC_SPACE);
         }
         break;
 
     case CIRCON:
         if (record->event.pressed) {
-            tap_code(CA_CIRC);
-            tap_code(KC_SPACE);
+            tap_code16(CA_CIRC);
+            tap_code16(KC_SPACE);
         }
         break;
     }
