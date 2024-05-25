@@ -285,9 +285,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
         KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_ESC,             KC_APP,        KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
         CA_UNDO,    CA_CUT,    CA_COPY,         CA_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_LALT,           KC_INS,         KC_DEL,
-                               KC_LGUI,         TG(0),           LSFT_T(KC_TAB),     LCTL_T(KC_TAB),TG(3),             LCA_T(KC_NO)
+                               LGUI_T(KC_ENT),  TG(0),           LSFT_T(KC_TAB),     LCTL_T(KC_TAB),TG(3),             LCA_T(KC_ENT)
     )
-
 
 
 
