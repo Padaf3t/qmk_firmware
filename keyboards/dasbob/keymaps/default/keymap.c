@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include keymap_canadian_multilingual.h
+#include KEYMAP_CANADIAN_MULTILINGUAL_H
 
 enum dasbob_layers {
   _OPTIMOT,
