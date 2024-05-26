@@ -57,7 +57,7 @@
 
 
 // Pick good defaults for enabling homerow modifiers
-#define TAPPING_TERM 200
+#define TAPPING_TERM 500
 #define PERMISSIVE_HOLD
 #define USB_VBUS_PIN 19
 #define AUDIO_PWM_DRIVER PWMD2
