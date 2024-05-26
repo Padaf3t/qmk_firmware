@@ -4,7 +4,7 @@
 //COMBO
 const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
-const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_COMM, COMBO_END};
+const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_DOT, COMBO_END};
 const uint16_t PROGMEM combo_cced[] =       {CA_M, CA_H, COMBO_END};
 const uint16_t PROGMEM combo_ugrv[] =       {CA_C, CA_M, COMBO_END};
 const uint16_t PROGMEM combo_capsworld[] =  {CA_L, CA_Q, COMBO_END};
