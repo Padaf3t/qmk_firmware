@@ -171,11 +171,3 @@
 #define CA_MORD RCTL(S(CA_M))    // º
 #define CA_MUL  RCTL(S(CA_COMM)) // ×
 #define CA_DIV  RCTL(S(CA_DOT))  // ÷
-
-#define CA_REDO LCTL(CA_Y)
-#define CA_SLTA LCTL(CA_A)
-#define CA_UNDO LCTL(CA_Z)
-#define CA_CUT  LCTL(CA_X)
-#define CA_COP  LCTL(CA_C)
-#define CA_PSTE LCTL(CA_V)
-
