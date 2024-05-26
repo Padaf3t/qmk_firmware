@@ -51,16 +51,19 @@
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
-#define COMBO_TERM 100
-
-#define CAPS_WORD_INVERT_ON_SHIFT
-
-
 // Pick good defaults for enabling homerow modifiers
-#define TAPPING_TERM 500
+#define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
 #define USB_VBUS_PIN 19
 #define AUDIO_PWM_DRIVER PWMD2
 #define AUDIO_PWM_CHANNEL RP2040_PWM_CHANNEL_B
 #define AUDIO_STATE_TIMER GPTD4
 #define AUDIO_PIN GP5
+#ifdef AUDIO_ENABLE
+    #define AUDIO_INIT_DELAY
+    #define AUDIO_CLICKY
+    #define AUDIO_CLICKY_FREQ_RANDOMNESS 1.0f
+    #define STARTUP_SONG SONG(STARTUP_SOUND)
+#endif
+
+#define STARTUP_SOUND E__NOTE(_E6), E__NOTE(_A6), ED_NOTE(_E7),

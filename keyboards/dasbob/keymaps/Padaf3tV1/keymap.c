@@ -1,15 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "padafet_keymap.h"
 
-enum dasbob_layers {
-  _OPTIMOT = 0,
-  _CIRC,
-  _TREMA,
-  _NUMBER,
-  _SYM,
-  _FUN,
-};
-
 //COMBO
 const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
@@ -287,7 +278,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_ESC,      CA_DLR,    CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,              CA_DOT,            CA_HASH,        KC_PSCR,
        CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,              CA_3,              CA_5,           CA_7,
        KC_F12,      XXXXXXX,   XXXXXXX,         CA_LPRN,         CA_UNDS,            CA_UNDS,       CA_RPRN,           XXXXXXX,           XXXXXXX,        KC_F11,
-                               TO(_FUN),        TO(0),           CA_COLN,            LALT_T(CA_EQL),TO(3),             KC_BSPC
+                               TO(5),           TO(0),           CA_COLN,            LALT_T(CA_EQL),TO(3),             KC_BSPC
     ),
 
     [5] = LAYOUT_split_3x5_3(
