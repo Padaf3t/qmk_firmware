@@ -1,293 +1,114 @@
 #include QMK_KEYBOARD_H
-#include "keymap_canadian_multilingual.h"
 
 enum dasbob_layers {
-  _OPTIMOT = 0,
-  _CIRC,
-  _TREMA,
-  _NUMBER,
-  _SYM,
-  _FUN,
+  _QWERTY,
+  _LOWER,
+  _RAISE
 };
-
-//COMBO
-const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
-const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
-const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_COMM, COMBO_END};
-const uint16_t PROGMEM combo_cced[] =       {CA_M, CA_H, COMBO_END};
-const uint16_t PROGMEM combo_ugrv[] =       {CA_C, CA_M, COMBO_END};
-const uint16_t PROGMEM combo_capsworld[] =  {CA_L, CA_Q, COMBO_END};
-combo_t key_combos[] = {
-    COMBO(combo_agrv, CA_AGRV),
-    COMBO(combo_underline, CA_UNDS),
-    COMBO(combo_dash, CA_MINS),
-    COMBO(combo_cced, CA_CCED),
-    COMBO(combo_ugrv, CA_UGRV),
-    COMBO(combo_capsworld, CW_TOGG)
-};
-
-//MACRO
-enum custom_keycodes {
-    //CIRC
-    ACIRC = SAFE_RANGE,
-    ECIRC,
-    ICIRC,
-    OCIRC,
-    UCIRC,
-    YCIRC,
-
-    //TREMA
-    ATREM,
-    ETREM,
-    UTREM,
-    ITREM,
-    YTREM,
-    OTREM,
-
-    //SYMBOL
-    TILDE,
-    CIRCON,
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    uint8_t mod_state = get_mods();
-
-    switch (keycode) {
-    //CIRC
-    case ACIRC:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_A));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_A);
-            }
-        }
-        break;
-
-    case ECIRC:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_E));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_E);
-            }
-        }
-        break;
-
-    case ICIRC:
-        if (record->event.pressed) {
-           if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_I));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_I);
-            }
-        }
-        break;
-    
-    case OCIRC:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_O));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_O);
-            }
-        }
-        break;
-
-    case UCIRC:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_U));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_U);
-            }
-        }
-        break;
-
-    case YCIRC:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_CIRC);
-                tap_code16(S(CA_Y));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_CIRC);
-                tap_code16(CA_Y);
-            }
-        }
-        break;
-
-    //TREMA
-    case ATREM:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_A));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_A);
-            }
-        }
-        break;
-
-    case ETREM:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_E));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_E);
-            }
-        }
-        break;
-
-    case ITREM:
-        if (record->event.pressed) {
-           if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_I));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_I);
-            }
-        }
-        break;
-    
-    case OTREM:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_O));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_O);
-            }
-        }
-        break;
-
-    case UTREM:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_U));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_U);
-            }
-        }
-        break;
-
-    case YTREM:
-        if (record->event.pressed) {
-            if(mod_state & MOD_MASK_SHIFT){
-                del_mods(MOD_MASK_SHIFT);
-                tap_code16(CA_DIAE);
-                tap_code16(S(CA_Y));
-                set_mods(mod_state);
-            }else{
-                tap_code16(CA_DIAE);
-                tap_code16(CA_Y);
-            }
-            
-        }
-        break;
-    //SYMBOL
-    case TILDE:
-        if (record->event.pressed) {
-            tap_code16(CA_DTIL);
-            tap_code16(KC_SPACE);
-        }
-        break;
-
-    case CIRCON:
-        if (record->event.pressed) {
-            tap_code16(CA_CIRC);
-            tap_code16(KC_SPACE);
-        }
-        break;
-    }
-    return true;
-};
-
-
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+     /*
+      * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
+      * │ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │ A │ S │ D │ F │ G │       │ H │ J │ K │ L │ ; │
+      * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
+      * │ Z │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │
+      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
+      *           ┌───┐                   ┌───┐
+      *           │DEL├───┐           ┌───┤ESC│
+      *           └───┤SPC├───┐   ┌───┤BSP├───┘
+      *               └───│LOW│   │RSE├───┘
+      *                   └───┘   └───┘
+      */
 
-    [0] = LAYOUT_split_3x5_3(
-        CA_Z,       CA_J,      CA_O,            CA_EACU,         CA_B,               CA_F,          CA_D,              CA_L,              CA_Q,           CA_X,
-        CA_A,       CA_I,      LALT_T(CA_E),    LGUI_T(CA_U),    CA_COMM,            CA_P,          LGUI_T(CA_T),      LALT_T(CA_S),      CA_R,           CA_N,
-        CA_K,       CA_Y,      CA_EGRV,         CA_DOT,          CA_W,               CA_G,          CA_C,              CA_M,              CA_H,           CA_V,
-                               TO(1),           MEH_T(KC_SPC),   KC_LSFT,            KC_LCTL,       TO(3),             KC_BSPC
+
+    [_QWERTY] = LAYOUT_split_3x5_3(
+        KC_Q,    KC_W,              KC_E,            KC_R,            KC_T,               KC_Y,         KC_U,              KC_I,              KC_O,           KC_P,
+        KC_A,    RALT_T(KC_S),      LCTL_T(KC_D),    LSFT_T(KC_F),    KC_G,               KC_H,         LSFT_T(KC_J),      LCTL_T(KC_K),      RALT_T(KC_L),   KC_SCLN,
+        KC_Z,    KC_X,              KC_C,            KC_V,            KC_B,               KC_N,         KC_M,              KC_COMM,           KC_DOT,         KC_SLSH,
+                                    KC_DEL,          KC_SPC,          MO(1),              MO(2),        KC_BSPC,           KC_ESC
     ),
 
-    [1] = LAYOUT_split_3x5_3(
-        _______,    _______,   OCIRC,           _______,         _______,            _______,       _______,           _______,           _______,        _______,
-        ACIRC,      ICIRC,     ECIRC,           UCIRC,           _______,            _______,       _______,           _______,           _______,        _______, 
-        _______,    YCIRC,     _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
-                               TO(2),           TO(0),           _______,            _______,       TO(3),             _______
+    [_LOWER] = LAYOUT_split_3x5_3(
+       KC_1,     KC_2,              KC_3,            KC_4,            KC_5,               KC_6,         KC_7,             KC_8,            KC_9,              KC_0,
+       CK_RST,  RALT_T(XXXXXXX),   LCTL_T(XXXXXXX), LSFT_T(XXXXXXX), KC_PSCR,           KC_MINS,      LSFT_T(KC_EQL),   LCTL_T(KC_GRV),  RALT_T(KC_QUOT),    KC_BSLS,
+       CK_TOGG,  CK_UP,           CK_DOWN,         LCTL(KC_C),      LCTL(KC_V),         KC_TAB,      XXXXXXX,          XXXXXXX,         XXXXXXX,           XXXXXXX,
+                                    KC_TRNS,         KC_TRNS,         KC_TAB,             KC_ENT,       KC_TRNS,          KC_TRNS
     ),
 
-    [2] = LAYOUT_split_3x5_3(
-        _______,    _______,   OTREM,           _______,         _______,            _______,       _______,           _______,           _______,        _______,
-        ATREM,      ITREM,     ETREM,           UTREM,           _______,            _______,       _______,           _______,           _______,        _______, 
-        _______,    YTREM,     _______,         _______,         _______,            _______,       _______,           _______,           _______,        _______,
-                               TO(1),           TO(0),           _______,            _______,       TO(3),             _______
+    [_RAISE] = LAYOUT_split_3x5_3(
+        KC_ESC,   KC_UP,           XXXXXXX,         XXXXXXX,         CK_TOGG,             KC_NUM_LOCK,  KC_KP_7,          KC_KP_8,         KC_KP_9,           KC_KP_MINUS,
+        KC_LEFT,  RALT_T(KC_DOWN), LCTL_T(KC_RGHT), LSFT_T(XXXXXXX), KC_LGUI,             XXXXXXX,      LSFT_T(KC_KP_4),  LCTL_T(KC_KP_5), RALT_T(KC_KP_6),   KC_KP_PLUS,
+        KC_MPRV,  KC_MSTP,         KC_MPLY,         KC_MNXT,         KC_PSCR,             XXXXXXX,      KC_KP_1,          KC_KP_2,         KC_KP_3,           KC_KP_0,
+                                   KC_TRNS,         KC_TRNS,         KC_TAB,              KC_ENT,       KC_TRNS,          KC_TRNS
     ),
-
-    [3] = LAYOUT_split_3x5_3(
-        CA_QUOT,    CA_LABK,   CA_RABK,         CA_DQUO,         CA_DOT,             CA_AMPR,       CA_SCLN,           CA_LBRC,           CA_RBRC,        CA_PERC,
-        CA_EXLM,    CA_MINS,   CA_PLUS,         CA_EQL,          CA_HASH,            CA_PIPE,       CA_COLN,           CA_LPRN,           CA_RPRN,        CA_QUES,
-        CIRCON,     CA_SLSH,   CA_ASTR,         CA_BSLS,         XXXXXXX,            TILDE,         CA_DLR,            CA_LCBR,           CA_RCBR,        CA_AT,
-                               TO(5),           TO(0),           KC_TAB,             KC_ENTER,      TO(4),             KC_BSPC
-    ),
-
-    [4] = LAYOUT_split_3x5_3(
-       KC_ESC,      CA_DLR,    CA_COMM,         CA_8,            CA_SLSH,            CA_ASTR,       CA_9,              CA_DOT,            CA_HASH,        KC_PSCR,
-       CA_6,        CA_4,      CA_2,            CA_0,            CA_MINS,            CA_PLUS,       CA_1,              CA_3,              CA_5,           CA_7,
-       KC_F12,      XXXXXXX,   XXXXXXX,         CA_LPRN,         CA_UNDS,            CA_UNDS,       CA_RPRN,           XXXXXXX,           XXXXXXX,        KC_F11,
-                               TO(_FUN),        TO(0),           CA_COLN,            LALT_T(CA_EQL),TO(3),             KC_BSPC
-    ),
-
-    [5] = LAYOUT_split_3x5_3(
-        KC_F1,      KC_F2,     KC_F3,           KC_F4,           KC_F5,              KC_F6,         KC_F7,             KC_F8,             KC_F9,          KC_F10,
-        KC_HOME,    KC_PGUP,   KC_PGDN,         KC_END,          KC_ENTER,           KC_APP,        KC_LEFT,           KC_DOWN,           KC_UP,          KC_RGHT,
-        CA_UNDO,    CA_CUT,    CA_COP,          CA_PSTE,         CA_REDO,            CA_SLTA,       KC_BSPC,           KC_LALT,           KC_INS,         KC_DEL,
-                               LGUI_T(KC_ESC),  TO(0),           LSFT_T(KC_TAB),     LCTL_T(KC_TAB),TO(3),             LCA_T(KC_NO)
-    )
-
 
 
 };
+#ifdef OLED_ENABLE
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_0; }
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        static const char PROGMEM runqmk_logo[] = {0,0,0,0,152,152,152,152,152,152,24,24,24,
+        152,152,24,24,24,152,152,24,24,152,152,24,24,24,152,152,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,127,127,13,13,29,63,103,64,0,63,127,96,96,96,127,63,0,0,127,127,7,12,56,
+        127,127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,252,134,198,198,252,120,0,0,254,254,
+        60,224,224,60,254,254,0,254,254,16,24,124,230,130,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,24,24,25,25,25,25,27,24,24,25,25,24,25,25,24,25,25,24,25,25,24,24,24,24,25,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0};
+
+
+        oled_write_raw_P(runqmk_logo, sizeof(runqmk_logo));
+
+        led_t led_usb_state = host_keyboard_led_state();
+        oled_set_cursor(6, 3);
+        oled_write_P(led_usb_state.num_lock    ? PSTR("NUM") : PSTR(""), false);
+        oled_set_cursor(6, 2);
+        oled_write_P(PSTR("WPM: "), false);
+        oled_write(get_u8_str(get_current_wpm(), '0'), false);
+        oled_set_cursor(6, 0);
+        oled_write_P(PSTR("by GroooveBob"), false);
+            oled_set_cursor(6, 1);
+            oled_write_P(PSTR("Layer: "), false);
+
+    switch (get_highest_layer(layer_state)) {
+        case _QWERTY:
+        oled_set_cursor(12, 1);
+            oled_write_P(PSTR("Default\n"), false);
+            break;
+        case _LOWER:
+        oled_set_cursor(12, 1);
+            oled_write_P(PSTR("Lower\n"), false);
+            break;
+        case _RAISE:
+        oled_set_cursor(12, 1);
+            oled_write_P(PSTR("Raise\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+        oled_set_cursor(6, 1);
+        oled_write_ln_P(PSTR("Undefined"), false);
+    }
+    } else {
+        static const char PROGMEM dasbob_logo[] = {
+        0,  0,  0,  0,  0,128,128,128,128,128,128,128,128,128,128,128,128,128,128,128,  0,  0,  0,  0,  0,128,128,128,192,192,192,192,192,192,192,192,192,192,192,128,128,  0,  0,  0,  0,  0,  0,  0,128,128,128,128,128,128,128,128,128,128,128,128,128,128,128,  0,  0,  0,  0,  0,128,128,128,128,128,128,128,128,128,128,128,128,128,  0,  0,  0,128,128,128,128,128,192,192,192,192,192,  0,  0,  0,128,128,128,128,128,128,128,128,128,  0,  0,  0,  0,128,128,128,128,128,128,128,128,128,128,128,128,128,128,128,128,  0,  0,
+        0,  0,126,127,255,255,255,255,255,255,255,199,247,255,255,255,255,255,255,255,255,127,252,255,255,255,255,255,255,255,255,255, 15,127,255,255,255,255,255,255,255,255,254,248,  0,126,127,255,255,255,255,255,255,255,199,247,255,255,255,255,255,255,255,255,127,126,255,255,255,255,255,255,255,255,239,239,239,239,207,223,223,223,159, 63,  0,  7, 63,255,255,255,255,255,255,255,254, 14,254,255,255,255,255,255,255,255, 63,241,252,254,255,255,255,255,255,255,255, 31,255,255,255,255,255,255,255,255,255,255,128,  0,
+        0,  0,126,255,255,255,255,255,255,255,255,227,255,255,255,255,255,255,255,255,255,  0, 15, 63,127,255,255,255,255,255,255,255,248,255,255,255,255,255,255,255,255,127, 63,  7,  0,126,255,255,255,255,255,255,255,255,227,255,255,255,255,255,255,255,255,255,128,252,253,249,249,251,251,251,251,251,255,255,255,255,255,255,255,255,127, 30,  0,  0,  0,  3, 31,255,255,255,255,255,255,255,255,255,255,255,255,255,255,  7,  0, 63,255,255,255,255,255,255,255,255,255,248,255,255,255,255,255,255,255,255,255,255,255,  0,
+        0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,
+        };
+        oled_write_raw_P(dasbob_logo, sizeof(dasbob_logo));
+    }
+    return false;
+}
+#endif

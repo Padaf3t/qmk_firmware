@@ -238,8 +238,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code16(KC_SPACE);
         }
         break;
-    }
-
+    
     case BACKDIR:
         if(record->event.pressed) {
             tap_code16(CA_DOT);
@@ -247,6 +246,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code16(CA_SLSH);
         }
         break;
+    }
     return true;
 };
 
