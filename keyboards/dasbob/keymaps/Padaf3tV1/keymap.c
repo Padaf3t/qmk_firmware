@@ -1,22 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "padafet_keymap.h"
 
-//COMBO
-const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
-const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
-const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_DOT, COMBO_END};
-const uint16_t PROGMEM combo_cced[] =       {CA_M, CA_H, COMBO_END};
-const uint16_t PROGMEM combo_ugrv[] =       {CA_C, CA_M, COMBO_END};
-const uint16_t PROGMEM combo_capsworld[] =  {CA_L, CA_Q, COMBO_END};
-combo_t key_combos[] = {
-    COMBO(combo_agrv, CA_AGRV),
-    COMBO(combo_underline, CA_UNDS),
-    COMBO(combo_dash, CA_MINS),
-    COMBO(combo_cced, CA_CCED),
-    COMBO(combo_ugrv, CA_UGRV),
-    COMBO(combo_capsworld, CW_TOGG)
-};
-
 //MACRO
 enum custom_keycodes {
     //CIRC
@@ -239,6 +223,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     }
     return true;
+};
+
+//COMBO
+const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
+const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
+const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_DOT, COMBO_END};
+const uint16_t PROGMEM combo_cced[] =       {CA_C, CA_M, COMBO_END};
+const uint16_t PROGMEM combo_ugrv[] =       {CA_M, CA_H, COMBO_END};
+const uint16_t PROGMEM combo_capsworld[] =  {CA_L, CA_Q, COMBO_END};
+const uint16_t PROGMEM combo_oe1[] =  {OCIRC, ECIRC, COMBO_END};
+const uint16_t PROGMEM combo_oe2[] =  {OTREM, ETREM, COMBO_END};
+const uint16_t PROGMEM combo_ae1[] =  {ACIRC, ECIRC, COMBO_END};
+const uint16_t PROGMEM combo_ae2[] =  {ATREM, ETREM, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo_agrv, CA_AGRV),
+    COMBO(combo_underline, CA_UNDS),
+    COMBO(combo_dash, CA_MINS),
+    COMBO(combo_cced, CA_CCED),
+    COMBO(combo_ugrv, CA_UGRV),
+    COMBO(combo_capsworld, CW_TOGG),
+    COMBO(combo_oe1, CA_OE),
+    COMBO(combo_oe2, CA_OE),
+    COMBO(combo_ae1, CA_AE),
+    COMBO(combo_ae2, CA_AE)
 };
 
 
