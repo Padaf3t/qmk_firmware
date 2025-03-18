@@ -24,6 +24,8 @@ enum custom_keycodes {
     CIRCON,
     BACKDIR,
     GRAVE,
+    FATARR,
+    SKINARR,
 
     CTRLSHFT,
 };
@@ -34,21 +36,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 
     case KC_BSPC:
-        static bool delkey_registered;
-        if (record->event.pressed) {
-            if (mod_state & MOD_MASK_SHIFT) {
-                del_mods(MOD_MASK_SHIFT);
-                register_code(KC_DEL);
-                delkey_registered = true;
-                set_mods(mod_state);
+        static uint16_t registered_key = KC_NO;
+        if (record->event.pressed) {  // On key press.
+            const uint8_t mods = get_mods();
+#ifndef     NO_ACTION_ONESHOT
+            uint8_t shift_mods = (mods | get_oneshot_mods()) & MOD_MASK_SHIFT;
+#else
+            uint8_t shift_mods = mods & MOD_MASK_SHIFT;
+#endif      // NO_ACTION_ONESHOT
+            if (shift_mods) {  // At least one shift key is held.
+                registered_key = KC_DEL;
+                // If one shift is held, clear it from the mods. But if both
+                // shifts are held, leave as is to send Shift + Del.
+                if (shift_mods != MOD_MASK_SHIFT) {
+#ifndef                 NO_ACTION_ONESHOT
+                    del_oneshot_mods(MOD_MASK_SHIFT);
+#endif                  // NO_ACTION_ONESHOT
+                    unregister_mods(MOD_MASK_SHIFT);
+                }
+            } else {
+                registered_key = KC_BSPC;
             }
-        } else {
-            if (delkey_registered) {
-                unregister_code(KC_DEL);
-                delkey_registered = false;
-            }
+            register_code(registered_key);
+            set_mods(mods);
+        } else {  // On key release.
+            unregister_code(registered_key);
         }
-        break;
+        return false;
+
 
     //CIRC
     case ACIRC:
@@ -62,6 +77,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_A);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -76,6 +93,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_E);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -90,6 +109,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_I);
             }
+            layer_move(0);
+            return false;
         }
         break;
     
@@ -104,6 +125,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_O);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -118,6 +141,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_U);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -132,6 +157,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_CIRC);
                 tap_code16(CA_Y);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -147,6 +174,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_A);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -161,6 +190,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_E);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -175,6 +206,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_I);
             }
+            layer_move(0);
+            return false;
         }
         break;
     
@@ -189,6 +222,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_O);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -203,6 +238,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_U);
             }
+            layer_move(0);
+            return false;
         }
         break;
 
@@ -217,7 +254,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_Y);
             }
-            
+            layer_move(0);
+            return false;
         }
         break;
     //SYMBOL
@@ -225,6 +263,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             tap_code16(CA_DTIL);
             tap_code16(KC_SPACE);
+            return false;
         }
         break;
 
@@ -232,6 +271,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             tap_code16(CA_CIRC);
             tap_code16(KC_SPACE);
+            return false;
         }
         break;
     
@@ -240,6 +280,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             tap_code16(CA_DOT);
             tap_code16(CA_DOT);
             tap_code16(CA_SLSH);
+            return false;
         }
         break;
 
@@ -247,20 +288,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if(record->event.pressed) {
             tap_code16(C(A(CA_CIRC)));
             tap_code16(KC_SPACE);
+            return false;
+        }
+        break;
+
+    case FATARR:
+        if(record->event.pressed) {
+            tap_code16(CA_EQL);
+            tap_code16(CA_RABK);
+            return false;
+        }
+        break;
+
+    case SKINARR:
+        if(record->event.pressed) {
+            tap_code16(CA_MINS);
+            tap_code16(CA_RABK);
+            return false;
         }
         break;
 
     case CTRLSHFT:  
         if (record->event.pressed) {  
-            static bool held = false;
-            held = !held;
-            if (held) { 
-                register_code(KC_LCTL);
-                register_code(KC_LSFT);
-            } else {
-                unregister_code(KC_LSFT);
-                unregister_code(KC_LCTL);
-            }
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+        } else {
+            unregister_code(KC_LSFT);
+            unregister_code(KC_LCTL);
         }
         break;
     }
@@ -316,50 +370,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x5_3(
         CA_Z,         CA_J,         CA_O,         CA_EACU,      CA_B,           CA_F,          CA_D,          CA_L,         CA_Q,           CA_X,
         LGUI_T(CA_A), LALT_T(CA_I), LCTL_T(CA_E), LSFT_T(CA_U), CA_COMM,        CA_P,          LSFT_T(CA_T),  LCTL_T(CA_S), LALT_T(CA_R),   LGUI_T(CA_N),
-        CA_K,         CA_Y,         CA_EGRV,      CA_DOT,       CA_W,           CA_G,          CA_C,          CA_M,         CA_H,           CA_V,
-                                    KC_BSPC,      TO(3),        LT(6, KC_NO),   QK_REP,        KC_SPC,        OSM(1)
+        LT(5, CA_K),  LT(4, CA_Y),  CA_EGRV,      LT(3, CA_DOT),CA_W,           CA_G,          LT(3, CA_C),   CA_M,         LT(4, CA_H),    LT(5, CA_V),
+                                    TO(2),        KC_BSPC,      LT(6, KC_NO),   LT(6, QK_REP), KC_SPC,        TO(1)
     ),
 
     [1] = LAYOUT_split_3x5_3(
         _______,      _______,      OCIRC,        _______,      _______,        _______,       _______,       _______,      _______,        _______,
         ACIRC,        ICIRC,        ECIRC,        UCIRC,        _______,        _______,       _______,       _______,      _______,        _______, 
         _______,      YCIRC,        _______,      _______,      _______,        _______,       _______,       _______,      _______,        _______,
-                                    _______,      TO(3),        _______,        _______,       TO(0),         OSM(2)
+                                    _______,      _______,      _______,        _______,       TO(0),         _______
     ), 
 
     [2] = LAYOUT_split_3x5_3(
         _______,      _______,      OTREM,        _______,      _______,        _______,       _______,       _______,      _______,        _______,
         ATREM,        ITREM,        ETREM,        UTREM,        _______,        _______,       _______,       _______,      _______,        _______, 
         _______,      YTREM,        _______,      _______,      _______,        _______,       _______,       _______,      _______,        _______,
-                                    _______,      TO(3),        _______,        _______,       TO(0),         OSM(1)
+                                    _______,      _______,      _______,        _______,       TO(0),         _______
     ),
 
     [3] = LAYOUT_split_3x5_3(
         CA_QUOT,      CA_LABK,      CA_RABK,      CA_DQUO,      CA_DOT,         CA_AMPR,       CA_SCLN,       CA_LBRC,      CA_RBRC,        CA_PERC,
         CA_EXLM,      CA_MINS,      CA_PLUS,      CA_EQL,       CA_HASH,        CA_PIPE,       CA_COLN,       CA_LPRN,      CA_RPRN,        CA_QUES,
         CIRCON,       CA_SLSH,      CA_ASTR,      CA_BSLS,      GRAVE,          TILDE,         CA_DLR,        CA_LCBR,      CA_RCBR,        CA_AT,
-                                    KC_BSPC,      TO(4),        _______,        _______,       TO(0),         TO(5)
+                                    _______,      _______,      FATARR,         SKINARR,       _______,       _______
     ),
 
     [4] = LAYOUT_split_3x5_3(
-       XXXXXXX,       XXXXXXX,      CA_COMM,      CA_8,         CA_SLSH,        CA_ASTR,       CA_9,          CA_DOT,      XXXXXXX,        XXXXXXX,
-       LGUI_T(CA_6),  LALT_T(CA_4), LCTL_T(CA_2), LSFT_T(CA_0), CA_MINS,        CA_PLUS,       LSFT_T(CA_1),  LCTL_T(CA_3), LALT_T(CA_5),   LGUI_T(CA_7),
-       XXXXXXX,       XXXXXXX,      XXXXXXX,      CA_LPRN,      CA_UNDS,        CA_UNDS,       CA_RPRN,       XXXXXXX,      XXXXXXX,        XXXXXXX,
-                                    KC_BSPC,      TO(3),        _______,        _______,       TO(0),         TO(5)
+        XXXXXXX,      XXXXXXX,      CA_COMM,      CA_8,         CA_SLSH,        CA_ASTR,       CA_9,          CA_DOT,       XXXXXXX,        XXXXXXX,
+        LGUI_T(CA_6), LALT_T(CA_4), LCTL_T(CA_2), LSFT_T(CA_0), CA_MINS,        CA_PLUS,       LSFT_T(CA_1),  LCTL_T(CA_3), LALT_T(CA_5),   LGUI_T(CA_7),
+        XXXXXXX,      XXXXXXX,      XXXXXXX,      CA_LPRN,      CA_UNDS,        CA_UNDS,       CA_RPRN,       XXXXXXX,      XXXXXXX,        XXXXXXX,
+                                    _______,      _______,      XXXXXXX,        QK_REP,        _______,       _______
     ),
 
     [5] = LAYOUT_split_3x5_3(
-       C(A(KC_DEL)),  XXXXXXX,      KC_F12,       KC_F8,         KC_INS,        XXXXXXX,       KC_F9,         KC_F11,       XXXXXXX,       XXXXXXX,
-       LGUI_T(KC_F6), LALT_T(KC_F4),LCTL_T(KC_F2),LSFT_T(KC_F10),KC_PSCR,       KC_APP,        LSFT_T(KC_F1), LCTL_T(KC_F3),LALT_T(KC_F5), LGUI_T(KC_F7),
-       XXXXXXX,       XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,      XXXXXXX,       XXXXXXX,
-                                    XXXXXXX,      TO(3),         _______,       _______,       TO(0),         TO(4)
+        C(A(KC_DEL)), XXXXXXX,      KC_F12,       KC_F8,         KC_INS,        XXXXXXX,       KC_F9,         KC_F11,       XXXXXXX,        XXXXXXX,
+        LGUI_T(KC_F6),LALT_T(KC_F4),LCTL_T(KC_F2),LSFT_T(KC_F10),KC_PSCR,       KC_APP,        LSFT_T(KC_F1), LCTL_T(KC_F3),LALT_T(KC_F5),  LGUI_T(KC_F7),
+        XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,      XXXXXXX,        XXXXXXX,
+                                    _______,      _______,       _______,       _______,       _______,       _______
     ),
 
     [6] = LAYOUT_split_3x5_3(
-        LALT_T(KC_END), LCTL_T(KC_PGDN),LCTL_T(KC_PGUP),LALT_T(KC_HOME),PF_SLTA,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
+        LALT_T(KC_HOME),LCTL_T(KC_PGDN),LCTL_T(KC_PGUP),LALT_T(KC_END), PF_SLTA,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
         KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        QK_LLCK,            XXXXXXX,       KC_LSFT,           KC_LCTL,           KC_LALT,        KC_LGUI, 
         LSFT_T(PF_UNDO),LGUI_T(PF_CUT), LGUI_T(PF_COPY),LSFT_T(PF_PSTE),PF_REDO,            XXXXXXX,       XXXXXXX,           XXXXXXX,           XXXXXXX,        XXXXXXX,
-                                        CTRLSHFT,       KC_LCTL,        XXXXXXX,            _______,       TO(0),             XXXXXXX
+                                        CTRLSHFT,       KC_LCTL,        QK_REP,             QK_REP,        TO(0),             XXXXXXX
     ) 
 
 
