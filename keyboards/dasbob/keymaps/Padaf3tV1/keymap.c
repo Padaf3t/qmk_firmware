@@ -35,36 +35,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
 
-    case KC_BSPC:
-        static uint16_t registered_key = KC_NO;
-        if (record->event.pressed) {  // On key press.
-            const uint8_t mods = get_mods();
-#ifndef     NO_ACTION_ONESHOT
-            uint8_t shift_mods = (mods | get_oneshot_mods()) & MOD_MASK_SHIFT;
-#else
-            uint8_t shift_mods = mods & MOD_MASK_SHIFT;
-#endif      // NO_ACTION_ONESHOT
-            if (shift_mods) {  // At least one shift key is held.
-                registered_key = KC_DEL;
-                // If one shift is held, clear it from the mods. But if both
-                // shifts are held, leave as is to send Shift + Del.
-                if (shift_mods != MOD_MASK_SHIFT) {
-#ifndef                 NO_ACTION_ONESHOT
-                    del_oneshot_mods(MOD_MASK_SHIFT);
-#endif                  // NO_ACTION_ONESHOT
-                    unregister_mods(MOD_MASK_SHIFT);
-                }
-            } else {
-                registered_key = KC_BSPC;
-            }
-            register_code(registered_key);
-            set_mods(mods);
-        } else {  // On key release.
-            unregister_code(registered_key);
-        }
-        return false;
-
-
     //CIRC
     case ACIRC:
         if (record->event.pressed) {
@@ -370,29 +340,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x5_3(
         CA_Z,         CA_J,         CA_O,         CA_EACU,      CA_B,           CA_F,          CA_D,          CA_L,         CA_Q,           CA_X,
         LGUI_T(CA_A), LALT_T(CA_I), LCTL_T(CA_E), LSFT_T(CA_U), CA_COMM,        CA_P,          LSFT_T(CA_T),  LCTL_T(CA_S), LALT_T(CA_R),   LGUI_T(CA_N),
-        LT(5, CA_K),  LT(4, CA_Y),  CA_EGRV,      LT(3, CA_DOT),CA_W,           CA_G,          LT(3, CA_C),   CA_M,         LT(4, CA_H),    LT(5, CA_V),
-                                    TO(2),        KC_BSPC,      LT(6, KC_NO),   LT(6, QK_REP), KC_SPC,        TO(1)
+        LT(5, CA_K),  CA_Y,         CA_EGRV,      CA_DOT,       CA_W,           CA_G,          CA_C,          CA_M,         CA_H,           LT(5, CA_V),
+                                    LT(4, KC_NO), LT(3, KC_BSPC),LT(6, KC_DEL), QK_REP,        KC_SPC,        TO(1)
     ),
 
     [1] = LAYOUT_split_3x5_3(
         _______,      _______,      OCIRC,        _______,      _______,        _______,       _______,       _______,      _______,        _______,
         ACIRC,        ICIRC,        ECIRC,        UCIRC,        _______,        _______,       _______,       _______,      _______,        _______, 
         _______,      YCIRC,        _______,      _______,      _______,        _______,       _______,       _______,      _______,        _______,
-                                    _______,      _______,      _______,        _______,       TO(0),         _______
+                                    _______,      _______,      _______,        _______,       TO(0),         TO(2)
     ), 
 
     [2] = LAYOUT_split_3x5_3(
         _______,      _______,      OTREM,        _______,      _______,        _______,       _______,       _______,      _______,        _______,
         ATREM,        ITREM,        ETREM,        UTREM,        _______,        _______,       _______,       _______,      _______,        _______, 
         _______,      YTREM,        _______,      _______,      _______,        _______,       _______,       _______,      _______,        _______,
-                                    _______,      _______,      _______,        _______,       TO(0),         _______
+                                    _______,      _______,      _______,        _______,       TO(0),         TO(1)
     ),
 
     [3] = LAYOUT_split_3x5_3(
         CA_QUOT,      CA_LABK,      CA_RABK,      CA_DQUO,      CA_DOT,         CA_AMPR,       CA_SCLN,       CA_LBRC,      CA_RBRC,        CA_PERC,
         CA_EXLM,      CA_MINS,      CA_PLUS,      CA_EQL,       CA_HASH,        CA_PIPE,       CA_COLN,       CA_LPRN,      CA_RPRN,        CA_QUES,
         CIRCON,       CA_SLSH,      CA_ASTR,      CA_BSLS,      GRAVE,          TILDE,         CA_DLR,        CA_LCBR,      CA_RCBR,        CA_AT,
-                                    _______,      _______,      FATARR,         SKINARR,       _______,       _______
+                                    _______,      _______,      _______,        FATARR,        _______,       SKINARR
     ),
 
     [4] = LAYOUT_split_3x5_3(
