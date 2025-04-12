@@ -35,21 +35,26 @@
 //#define I2C1_CLOCK_SPEED 400000
 //#define I2C_DRIVER I2CD2
 
-// Set the mouse settings to a comfortable speed/accuracy trade-off,
-// assuming a screen refresh rate of 60 Htz or higher
-// The default is 50. This makes the mouse ~3 times faster and more accurate
-#define MOUSEKEY_INTERVAL 16
-// The default is 20. Since we made the mouse about 3 times faster with the previous setting,
-// give it more time to accelerate to max speed to retain precise control over short distances.
-#define MOUSEKEY_TIME_TO_MAX 40
-// The default is 300. Let's try and make this as low as possible while keeping the cursor responsive
-#define MOUSEKEY_DELAY 100
-// It makes sense to use the same delay for the mouseweel
-#define MOUSEKEY_WHEEL_DELAY 100
-// The default is 100
-#define MOUSEKEY_WHEEL_INTERVAL 50
-// The default is 40
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 100
+#define MK_3_SPEED
+#define MK_MOMENTARY_ACCEL
+
+#define MK_C_OFFSET_UNMOD 8
+#define MK_C_INTERVAL_UNMOD 16
+#define MK_C_OFFSET_0 2
+#define MK_C_INTERVAL_0 16
+#define MK_C_OFFSET_1 16
+#define MK_C_INTERVAL_1 16
+#define MK_C_OFFSET_2 32
+#define MK_C_INTERVAL_2 16
+
+#define MK_W_OFFSET_UNMOD 1
+#define MK_W_INTERVAL_UNMOD 40
+#define MK_W_OFFSET_0 1
+#define MK_W_INTERVAL_0 80
+#define MK_W_OFFSET_1 1
+#define MK_W_INTERVAL_1 60
+#define MK_W_OFFSET_2 1
+#define MK_W_INTERVAL_2 10
 
 #define COMBO_TERM 30
 
