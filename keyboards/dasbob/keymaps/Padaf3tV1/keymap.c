@@ -25,8 +25,10 @@
 #define HRM_H       LALT_T(CA_H)
 #define HRM_V       LGUI_T(CA_V)
 
+#define HRM_0       LT(SYM, CA_0)
 #define HRM_2       LSFT_T(CA_2)
 #define HRM_SPC     LCTL_T(KC_SPC)
+#define HRM_1       LT(SYM, CA_1)
 #define HRM_3       LSFT_T(CA_3)
 
 #define HRM_F2      LSFT_T(KC_F2)
@@ -65,6 +67,10 @@ enum custom_keycodes {
     CTRLSHFT,
     DBLCLICK,
     TPLCLICK,
+    ANGLEB,
+    PARANTESIS,
+    SQAREB,
+    CURLYB
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -328,9 +334,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
+    
+    case ANGLEB:
+        if(record->event.pressed) {
+            tap_code16(CA_LABK);
+            tap_code16(CA_RABK);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
+
+    case PARANTESIS:
+        if(record->event.pressed) {
+            tap_code16(CA_LPRN);
+            tap_code16(CA_RPRN);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
+
+    case SQAREB:
+        if(record->event.pressed) {
+            tap_code16(CA_LBRC);
+            tap_code16(CA_RBRC);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
+
+    case CURLYB:
+        if(record->event.pressed) {
+            tap_code16(CA_LCBR);
+            tap_code16(CA_RCBR);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
     }
-
-
     return true;
 };
 
@@ -346,16 +386,20 @@ const uint16_t PROGMEM combo_ugrv[] =       {CA_M, HRM_H, COMBO_END};
 const uint16_t PROGMEM combo_q[] =          {CA_D, CA_L, COMBO_END};
 const uint16_t PROGMEM combo_enter[] =      {CA_L, CA_QUOT, COMBO_END};
 const uint16_t PROGMEM combo_capsworld[] =  {CA_QUOT, CA_X, COMBO_END};
+//layer circ - trem
 const uint16_t PROGMEM combo_oe1[] =        {ECIRC, UCIRC, COMBO_END};
 const uint16_t PROGMEM combo_oe2[] =        {ETREM, UTREM, COMBO_END};
 const uint16_t PROGMEM combo_ae1[] =        {ACIRC, ICIRC, COMBO_END};
 const uint16_t PROGMEM combo_ae2[] =        {ATREM, ITREM, COMBO_END};
-//layer circ - trem
 const uint16_t PROGMEM combo_tab1[] =        {CA_J, OCIRC, COMBO_END};
 const uint16_t PROGMEM combo_tab2[] =        {CA_J, OTREM, COMBO_END};
 //Layer sym
 const uint16_t PROGMEM combo_fatarrow[] =    {CA_SCLN, CA_LBRC, COMBO_END};
 const uint16_t PROGMEM combo_skinarrow[] =   {CA_DLR, CA_LCBR, COMBO_END};
+const uint16_t PROGMEM combo_angleb[] =     {CA_LABK, CA_RABK, COMBO_END};
+const uint16_t PROGMEM combo_parentesis[] =   {CA_LPRN, CA_RPRN, COMBO_END};
+const uint16_t PROGMEM combo_squareb[] =     {CA_LBRC, CA_RBRC, COMBO_END};
+const uint16_t PROGMEM combo_curlyb[] =     {CA_LCBR, CA_RCBR, COMBO_END};
 
 //Layer Number
 
@@ -381,9 +425,11 @@ combo_t key_combos[] = {
     //Layer sym
     COMBO(combo_fatarrow, FATARR),
     COMBO(combo_skinarrow, SKINARR),
+    COMBO(combo_angleb, ANGLEB),
+    COMBO(combo_parentesis, PARANTESIS),
+    COMBO(combo_squareb, SQAREB),
+    COMBO(combo_curlyb, CURLYB)
 };
-
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -417,7 +463,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NUM] = LAYOUT_split_3x5_3(
         XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,     XXXXXXX,       XXXXXXX,     XXXXXXX,      XXXXXXX,
-        CA_6,         CA_4,         HRM_2,        CA_0,          CA_8,           CA_9,        CA_1,          HRM_3,       CA_5,         CA_7,
+        CA_6,         CA_4,         HRM_2,        HRM_0,         CA_8,           CA_9,        HRM_1,         HRM_3,       CA_5,         CA_7,
         KC_LGUI,      KC_LALT,      XXXXXXX,      HRM_SPC,       XXXXXXX,        XXXXXXX,     HRM_SPC,       XXXXXXX,     KC_LALT,      KC_LGUI,
                                     _______,      _______,       _______,        _______,     _______,       _______
     ),
@@ -437,9 +483,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [WIN] = LAYOUT_split_3x5_3(
-        KC_MUTE,      KC_VOLD,      KC_VOLU,      KC_MPLY,      C(CA_T),        KC_WREF,      KC_WSCH,       KC_WBAK,     KC_WFWD,      KC_WHOM,
+        KC_MUTE,      KC_VOLD,      KC_VOLU,      KC_MPLY,      C(CA_T),        C(KC_F5),     C(CA_E),       KC_WBAK,     KC_WFWD,      KC_WHOM,
         G(CA_D),      G(CA_3),      G(CA_2),      G(CA_1),      G(KC_HOME),     G(KC_I),      PRV_APP,       KC_DOWN,     KC_UP,        NXT_APP,
-        C(CA_W),      G(CA_6),      G(CA_5),      G(CA_4),      C(CA_N),        G(KC_X),      C(CA_E),       KC_LSFT,     KC_LALT,      A(KC_F4),
+        C(CA_W),      G(CA_6),      G(CA_5),      G(CA_4),      C(CA_N),        G(KC_X),      C(CA_F),       KC_LSFT,     KC_LALT,      A(KC_F4),
                                     _______,      _______,      _______,        _______,      _______,       _______
     ),
 };
