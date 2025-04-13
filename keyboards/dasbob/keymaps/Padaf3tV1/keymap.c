@@ -10,6 +10,32 @@
 #define NAV 6
 #define WIN 7
 
+#define HRM_E       LSFT_T(CA_E)   
+#define HRM_U       LT(SYM, CA_U)   
+#define HRM_K       LGUI_T(CA_K)
+#define HRM_Y       LALT_T(CA_Y)
+#define HRM_DOT     LCTL_T(CA_DOT)
+#define HRM_BSPC    LT(NAV, KC_BSPC)
+
+#define HRM_T       LT(SYM, CA_T)
+#define HRM_S       LSFT_T(CA_S)
+#define HRM_R       LT(TREM, CA_R)
+#define HRM_N       LT(CIRC, CA_N)
+#define HRM_C       LCTL_T(CA_C)
+#define HRM_H       LALT_T(CA_H)
+#define HRM_V       LGUI_T(CA_V)
+
+#define HRM_2       LSFT_T(CA_2)
+#define HRM_SPC     LCTL_T(KC_SPC)
+#define HRM_3       LSFT_T(CA_3)
+
+#define HRM_F2      LSFT_T(KC_F2)
+#define HRM_F3      LSFT_T(KC_F3)
+#define TSK_MAN     C(S(KC_ESC))
+
+#define PRV_APP     S(A(KC_TAB))
+#define NXT_APP     A(KC_TAB)
+
 //MACRO
 enum custom_keycodes {
     //CIRC
@@ -313,10 +339,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_esc[] =        {CA_Z, CA_J, COMBO_END};
 const uint16_t PROGMEM combo_tab[] =        {CA_J, CA_O, COMBO_END};
 const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
-const uint16_t PROGMEM combo_underline[] =  {CA_Y, CA_EGRV, COMBO_END};
-const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, CA_DOT, COMBO_END};
-const uint16_t PROGMEM combo_cced[] =       {CA_C, CA_M, COMBO_END};
-const uint16_t PROGMEM combo_ugrv[] =       {CA_M, CA_H, COMBO_END};
+const uint16_t PROGMEM combo_underline[] =  {HRM_Y, CA_EGRV, COMBO_END};
+const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, HRM_DOT, COMBO_END};
+const uint16_t PROGMEM combo_cced[] =       {HRM_C, CA_M, COMBO_END};
+const uint16_t PROGMEM combo_ugrv[] =       {CA_M, HRM_H, COMBO_END};
 const uint16_t PROGMEM combo_q[] =          {CA_D, CA_L, COMBO_END};
 const uint16_t PROGMEM combo_enter[] =      {CA_L, CA_QUOT, COMBO_END};
 const uint16_t PROGMEM combo_capsworld[] =  {CA_QUOT, CA_X, COMBO_END};
@@ -357,31 +383,7 @@ combo_t key_combos[] = {
     COMBO(combo_skinarrow, SKINARR),
 };
 
-#define HRM_E       LSFT_T(CA_E)   
-#define HRM_U       LT(SYM, CA_U)   
-#define HRM_K       LGUI_T(CA_K)
-#define HRM_Y       LALT_T(CA_Y)
-#define HRM_DOT     LCTL_T(CA_DOT)
-#define HRM_BSPC    LT(NAV, KC_BSPC)
 
-#define HRM_T       LT(SYM, CA_T)
-#define HRM_S       LSFT_T(CA_S)
-#define HRM_R       LT(TREM, CA_R)
-#define HRM_N       LT(CIRC, CA_N)
-#define HRM_C       LCTL_T(CA_C)
-#define HRM_H       LALT_T(CA_H)
-#define HRM_V       LGUI_T(CA_V)
-
-#define HRM_2       LSFT_T(CA_2)
-#define HRM_SPC     LCTL_T(KC_SPC)
-#define HRM_3       LSFT_T(CA_3)
-
-#define HRM_F2      LSFT_T(KC_F2)
-#define HRM_F3      LSFT_T(KC_F3)
-#define TSK_MAN     C(S(KC_ESC))
-
-#define PRV_APP     S(A(KC_TAB))
-#define NXT_APP     A(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
