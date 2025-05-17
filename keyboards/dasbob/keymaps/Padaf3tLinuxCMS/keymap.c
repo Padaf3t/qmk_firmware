@@ -4,18 +4,18 @@
 #define BASE 0
 #define CIRC 1
 #define TREM 2
-#define SYM 3
-#define NUM 4
+#define NUM 3
+#define SYM 4
 #define FUN 5
 #define NAV 6
-#define WIN 7
 
 #define HRM_E       LSFT_T(CA_E)   
 #define HRM_U       LT(SYM, CA_U)   
 #define HRM_K       LGUI_T(CA_K)
 #define HRM_Y       LALT_T(CA_Y)
 #define HRM_DOT     LCTL_T(CA_DOT)
-#define HRM_BSPC    LT(NAV, KC_BSPC)
+#define HRM_BSPC    LT(FUN, KC_BSPC)
+#define HRM_DEL     LT(NUM, KC_DEL)
 
 #define HRM_T       LT(SYM, CA_T)
 #define HRM_S       LSFT_T(CA_S)
@@ -35,9 +35,6 @@
 #define HRM_F3      LSFT_T(KC_F3)
 #define TSK_MAN     C(S(KC_ESC))
 
-#define PRV_APP     S(A(KC_TAB))
-#define NXT_APP     A(KC_TAB)
-
 //MACRO
 enum custom_keycodes {
     //CIRC
@@ -55,6 +52,7 @@ enum custom_keycodes {
     ITREM,
     YTREM,
     OTREM,
+    DBLANGB,
 
     //SYMBOL
     TILDE,
@@ -63,14 +61,14 @@ enum custom_keycodes {
     GRAVE,
     FATARR,
     SKINARR,
-
-    CTRLSHFT,
-    DBLCLICK,
-    TPLCLICK,
     ANGLEB,
     PARANTESIS,
     SQAREB,
-    CURLYB
+    CURLYB,
+    DBLQTE,
+    SGLQTE,
+
+    CTRLSHFT,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -256,7 +254,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(CA_DIAE);
                 tap_code16(CA_Y);
             }
-            //layer_move(0);
+            return false;
+        }
+        break;
+    case DBLANGB:
+        if(record->event.pressed) {
+            tap_code16(CA_LDAQ);
+            tap_code16(CA_RDAQ);
+            tap_code16(KC_LEFT);
             return false;
         }
         break;
@@ -309,31 +314,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
-
-    case CTRLSHFT:  
-        if (record->event.pressed) {  
-            register_code(KC_LCTL);
-            register_code(KC_LSFT);
-        } else {
-            unregister_code(KC_LSFT);
-            unregister_code(KC_LCTL);
-        }
-        break;
-
-    //NAV
-    case DBLCLICK:
-        if(record->event.pressed) {
-            SEND_STRING(SS_TAP(X_BTN1) SS_DELAY(15) SS_TAP(X_BTN1));
-            return false;
-        }
-        break;
-    
-    case TPLCLICK:
-        if(record->event.pressed) {
-            SEND_STRING(SS_TAP(X_BTN1) SS_DELAY(15) SS_TAP(X_BTN1) SS_DELAY(15) SS_TAP(X_BTN1));
-            return false;
-        }
-        break;
     
     case ANGLEB:
         if(record->event.pressed) {
@@ -370,13 +350,41 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
+
+    case DBLQTE:
+        if(record->event.pressed) {
+            tap_code16(CA_DQUO);
+            tap_code16(CA_DQUO);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
+
+    case SGLQTE:
+        if(record->event.pressed) {
+            tap_code16(CA_QUOT);
+            tap_code16(CA_QUOT);
+            tap_code16(KC_LEFT);
+            return false;
+        }
+        break;
+
+    case CTRLSHFT:  
+        if (record->event.pressed) {  
+            register_code(KC_LCTL);
+            register_code(KC_LSFT);
+        } else {
+            unregister_code(KC_LSFT);
+            unregister_code(KC_LCTL);
+        }
+        break;
     }
     return true;
 };
 
 //COMBO
 //Layer base
-const uint16_t PROGMEM combo_esc[] =        {CA_Z, CA_J, COMBO_END};
+const uint16_t PROGMEM combo_esc[] =        {CA_J, CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_tab[] =        {CA_J, CA_O, COMBO_END};
 const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_underline[] =  {HRM_Y, CA_EGRV, COMBO_END};
@@ -385,21 +393,24 @@ const uint16_t PROGMEM combo_cced[] =       {HRM_C, CA_M, COMBO_END};
 const uint16_t PROGMEM combo_ugrv[] =       {CA_M, HRM_H, COMBO_END};
 const uint16_t PROGMEM combo_q[] =          {CA_D, CA_L, COMBO_END};
 const uint16_t PROGMEM combo_enter[] =      {CA_L, CA_QUOT, COMBO_END};
-const uint16_t PROGMEM combo_capsworld[] =  {CA_QUOT, CA_X, COMBO_END};
+const uint16_t PROGMEM combo_capsworld[] =  {CA_D, CA_L, CA_QUOT, COMBO_END};
 //layer circ - trem
 const uint16_t PROGMEM combo_oe1[] =        {ECIRC, UCIRC, COMBO_END};
 const uint16_t PROGMEM combo_oe2[] =        {ETREM, UTREM, COMBO_END};
 const uint16_t PROGMEM combo_ae1[] =        {ACIRC, ICIRC, COMBO_END};
 const uint16_t PROGMEM combo_ae2[] =        {ATREM, ITREM, COMBO_END};
-const uint16_t PROGMEM combo_tab1[] =        {CA_J, OCIRC, COMBO_END};
-const uint16_t PROGMEM combo_tab2[] =        {CA_J, OTREM, COMBO_END};
+const uint16_t PROGMEM combo_tab1[] =       {CA_J, OCIRC, COMBO_END};
+const uint16_t PROGMEM combo_tab2[] =       {CA_J, OTREM, COMBO_END};
+const uint16_t PROGMEM combo_dab[] =        {CA_LDAQ, CA_RDAQ, COMBO_END};
 //Layer sym
-const uint16_t PROGMEM combo_fatarrow[] =    {CA_SCLN, CA_LBRC, COMBO_END};
-const uint16_t PROGMEM combo_skinarrow[] =   {CA_DLR, CA_LCBR, COMBO_END};
+const uint16_t PROGMEM combo_fatarrow[] =   {CA_SCLN, CA_LBRC, COMBO_END};
+const uint16_t PROGMEM combo_skinarrow[] =  {CA_DLR, CA_LCBR, COMBO_END};
 const uint16_t PROGMEM combo_angleb[] =     {CA_LABK, CA_RABK, COMBO_END};
-const uint16_t PROGMEM combo_parentesis[] =   {CA_LPRN, CA_RPRN, COMBO_END};
-const uint16_t PROGMEM combo_squareb[] =     {CA_LBRC, CA_RBRC, COMBO_END};
+const uint16_t PROGMEM combo_parentesis[] = {CA_LPRN, CA_RPRN, COMBO_END};
+const uint16_t PROGMEM combo_squareb[] =    {CA_LBRC, CA_RBRC, COMBO_END};
 const uint16_t PROGMEM combo_curlyb[] =     {CA_LCBR, CA_RCBR, COMBO_END};
+const uint16_t PROGMEM combo_dblqte[] =     {CA_RABK, CA_DQUO, COMBO_END};
+const uint16_t PROGMEM combo_sglqte[] =     {CA_RABK, CA_QUOT, COMBO_END};
 
 //Layer Number
 
@@ -422,13 +433,23 @@ combo_t key_combos[] = {
     COMBO(combo_ae2, CA_AE),
     COMBO(combo_tab1, KC_TAB),
     COMBO(combo_tab2, KC_TAB),
-    //Layer sym
+    COMBO(combo_dab, DBLANGB),
+//Layer sym
     COMBO(combo_fatarrow, FATARR),
     COMBO(combo_skinarrow, SKINARR),
     COMBO(combo_angleb, ANGLEB),
     COMBO(combo_parentesis, PARANTESIS),
     COMBO(combo_squareb, SQAREB),
-    COMBO(combo_curlyb, CURLYB)
+    COMBO(combo_curlyb, CURLYB),
+    COMBO(combo_dblqte, DBLQTE),
+    COMBO(combo_sglqte, SGLQTE)
+};
+
+const custom_shift_key_t custom_shift_keys[] = {
+    {HRM_DOT , CA_QUES}, // Shift . is ?
+    {CA_COMM, CA_EXLM}, // Shift , is !
+    {CA_QUOT, CA_QUOT}, // Shift ' is '
+    {CA_DEG, CA_COPY}, // Shift ° is ©
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -437,55 +458,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CA_Z,         CA_J,         CA_O,         CA_EACU,      CA_B,           CA_F,        CA_D,          CA_L,         CA_QUOT,      CA_X,
         CA_A,         CA_I,         HRM_E,        HRM_U,        CA_COMM,        CA_P,        HRM_T,         HRM_S,        HRM_R,        HRM_N,
         HRM_K,        HRM_Y,        CA_EGRV,      HRM_DOT,      CA_W,           CA_G,        HRM_C,         CA_M,         HRM_H,        HRM_V,
-                                    MO(FUN),      HRM_BSPC,     KC_DEL,         MO(NUM),     KC_SPC,        MO(WIN)
+                                    MO(NAV),      HRM_BSPC,     HRM_DEL,        MO(NUM),     KC_SPC,        MO(NAV)
     ),
 
     [CIRC] = LAYOUT_split_3x5_3(
         _______,      _______,      OCIRC,        _______,      _______,        _______,     _______,       _______,      _______,      _______,
-        ACIRC,        ICIRC,        ECIRC,        UCIRC,        _______,        _______,     _______,       _______,      _______,      _______, 
-        _______,      YCIRC,        _______,      _______,      _______,        _______,     _______,       _______,      _______,      _______,
+        ACIRC,        ICIRC,        ECIRC,        UCIRC,        CA_DEG,         _______,     _______,       _______,      _______,      _______, 
+        _______,      YCIRC,        CA_LDAQ,      CA_RDAQ,      _______,        _______,     _______,       _______,      _______,      _______,
                                     _______,      _______,      _______,        _______,     _______,       _______
     ), 
 
     [TREM] = LAYOUT_split_3x5_3(
         _______,      _______,      OTREM,        _______,      _______,        _______,     _______,       _______,      _______,      _______,
-        ATREM,        ITREM,        ETREM,        UTREM,        _______,        _______,     _______,       _______,      _______,      _______, 
-        _______,      YTREM,        _______,      _______,      _______,        _______,     _______,       _______,      _______,      _______,
-                                    _______,      _______,      _______,        _______,     _______,       _______
-    ),
-
-    [SYM] = LAYOUT_split_3x5_3(
-        CA_QUOT,      CA_LABK,      CA_RABK,      CA_DQUO,      CA_DOT,         CA_AMPR,     CA_SCLN,       CA_LBRC,      CA_RBRC,      CA_PERC,
-        CA_EXLM,      CA_MINS,      CA_PLUS,      CA_EQL,       CA_HASH,        CA_PIPE,     CA_COLN,       CA_LPRN,      CA_RPRN,      CA_QUES,
-        CIRCON,       CA_SLSH,      CA_ASTR,      CA_BSLS,      GRAVE,          TILDE,       CA_DLR,        CA_LCBR,      CA_RCBR,      CA_AT,
+        ATREM,        ITREM,        ETREM,        UTREM,        CA_DEG,         _______,     _______,       _______,      _______,      _______, 
+        _______,      YTREM,        CA_LDAQ,      CA_RDAQ,      _______,        _______,     _______,       _______,      _______,      _______,
                                     _______,      _______,      _______,        _______,     _______,       _______
     ),
 
     [NUM] = LAYOUT_split_3x5_3(
-        XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,        XXXXXXX,     XXXXXXX,       XXXXXXX,     XXXXXXX,      XXXXXXX,
+        _______,      _______,      _______,      _______,       _______,        _______,     _______,       _______,     _______,      _______,
         CA_6,         CA_4,         HRM_2,        HRM_0,         CA_8,           CA_9,        HRM_1,         HRM_3,       CA_5,         CA_7,
-        KC_LGUI,      KC_LALT,      XXXXXXX,      HRM_SPC,       XXXXXXX,        XXXXXXX,     HRM_SPC,       XXXXXXX,     KC_LALT,      KC_LGUI,
+        KC_LGUI,      KC_LALT,      _______,      HRM_SPC,       _______,        _______,     HRM_SPC,       _______,     KC_LALT,      KC_LGUI,
                                     _______,      _______,       _______,        _______,     _______,       _______
     ),
 
+    [SYM] = LAYOUT_split_3x5_3(
+        GRAVE,        CA_LABK,      CA_RABK,      CA_DQUO,      CA_QUOT,        CA_AMPR,     CA_SCLN,       CA_LBRC,      CA_RBRC,      CA_PERC,
+        CA_EXLM,      CA_MINS,      CA_PLUS,      CA_EQL,       CA_HASH,        CA_PIPE,     CA_COLN,       CA_LPRN,      CA_RPRN,      CA_QUES,
+        CIRCON,       CA_SLSH,      CA_ASTR,      CA_BSLS,      BACKDIR,        TILDE,       CA_DLR,        CA_LCBR,      CA_RCBR,      CA_AT,
+                                    _______,      _______,      _______,        _______,     _______,       _______
+    ),
+
     [FUN] = LAYOUT_split_3x5_3(
-        C(A(KC_DEL)), TSK_MAN,      XXXXXXX,      KC_F12,        KC_INS,        XXXXXXX,      KC_F11,        XXXXXXX,     XXXXXXX,      XXXXXXX,
+        C(A(KC_DEL)), TSK_MAN,      _______,      KC_F12,        _______,       _______,      KC_F11,        _______,     _______,      _______,
         KC_F6,        KC_F4,        HRM_F2,       KC_F10,        KC_F8,         KC_F9,        KC_F1,         HRM_F3,      KC_F5,        KC_F7,
-        KC_LGUI,      KC_LALT,      XXXXXXX,      KC_LCTL,       KC_PSCR,       KC_APP,       KC_LCTL,       XXXXXXX,     KC_LALT,      KC_LGUI,
+        KC_LGUI,      KC_LALT,      _______,      KC_LCTL,       KC_PSCR,       KC_APP,       KC_LCTL,       _______,     KC_LALT,      KC_LGUI,
                                     _______,      _______,       _______,       _______,      _______,       _______
     ),
 
     [NAV] = LAYOUT_split_3x5_3(
-        KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,        PF_SLTA,       TPLCLICK,     MS_WHLD,       MS_UP,       MS_WHLU,      XXXXXXX,
-        KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,       MS_ACL1,       DBLCLICK,     MS_LEFT,       MS_DOWN,     MS_RGHT,      MS_BTN2, 
-        PF_UNDO,      PF_CUT,       PF_COPY,      PF_PSTE,       PF_REDO,       QK_LLCK,      KC_LCTL,       KC_LSFT,     KC_LALT,      KC_LGUI,
-                                    CTRLSHFT,     _______,       KC_LCTL,       MS_ACL0,      MS_BTN1,       MS_ACL2
-    ),
-
-    [WIN] = LAYOUT_split_3x5_3(
-        KC_MUTE,      KC_VOLD,      KC_VOLU,      KC_MPLY,      C(CA_T),        C(KC_F5),     C(CA_E),       KC_WBAK,     KC_WFWD,      KC_WHOM,
-        G(CA_D),      G(CA_3),      G(CA_2),      G(CA_1),      G(KC_HOME),     G(KC_I),      PRV_APP,       KC_DOWN,     KC_UP,        NXT_APP,
-        C(CA_W),      G(CA_6),      G(CA_5),      G(CA_4),      C(CA_N),        G(KC_X),      C(CA_F),       KC_LSFT,     KC_LALT,      A(KC_F4),
-                                    _______,      _______,      _______,        _______,      _______,       _______
+        _______,      _______,      _______,      _______,       _______,       _______,      KC_HOME,       KC_PGUP,     KC_PGDN,      KC_END,
+        KC_LGUI,      KC_LALT,      KC_LSFT,      KC_LCTL,       CTRLSHFT,      QK_LLCK,      KC_LEFT,       KC_UP,       KC_DOWN,      KC_RGHT, 
+        PF_UNDO,      PF_CUT,       PF_COPY,      PF_PSTE,       PF_REDO,       PF_SLTA,      SELWBAK,       SELWORD,     SELLINE,      KC_INS,
+                                    _______,      _______,       _______,       _______,      _______,       _______
     ),
 };

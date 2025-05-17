@@ -1,5 +1,6 @@
 #pragma once
 #include "keymap_canadian_multilingual.h"
+#include "sendstring_canadian_multilingual.h"
 // clang-format off
 
 // Aliases

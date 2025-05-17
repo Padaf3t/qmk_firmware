@@ -60,6 +60,9 @@
 
 #define CAPS_WORD_INVERT_ON_SHIFT
 
+#define CUSTOM_SHIFT_KEYS_NEGMODS ~MOD_MASK_SHIFT
+#define CUSTOM_SHIFT_KEYS_LAYER_MASK (1 << 0) | (1 << 1) | (1 << 2)
+#define SELECT_WORD_TIMEOUT 5000  // When idle, clear state after 5 seconds.
 
 // Pick good defaults for enabling homerow modifiers
 #define TAPPING_TERM 200
