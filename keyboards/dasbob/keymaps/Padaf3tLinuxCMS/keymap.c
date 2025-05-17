@@ -9,8 +9,8 @@
 #define FUN 5
 #define NAV 6
 
-#define HRM_E       LSFT_T(CA_E)   
 #define HRM_U       LT(SYM, CA_U)   
+#define HRM_E       LSFT_T(CA_E)   
 #define HRM_K       LGUI_T(CA_K)
 #define HRM_Y       LALT_T(CA_Y)
 #define HRM_DOT     LCTL_T(CA_DOT)
@@ -18,7 +18,7 @@
 #define HRM_DEL     LT(NUM, KC_DEL)
 
 #define HRM_T       LT(SYM, CA_T)
-#define HRM_S       LSFT_T(CA_S)
+#define HRM_S       RSFT_T(CA_S)
 #define HRM_R       LT(TREM, CA_R)
 #define HRM_N       LT(CIRC, CA_N)
 #define HRM_C       LCTL_T(CA_C)
