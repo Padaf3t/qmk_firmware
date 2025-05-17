@@ -17,6 +17,7 @@
 #define HRM_DOT     LCTL_T(CA_DOT)
 #define HRM_BSPC    LT(FUN, KC_BSPC)
 #define HRM_DEL     LT(NUM, KC_DEL)
+#define HRM_REPN    LT(NAV, QK_REP)
 
 #define HRM_T       LT(SYM, CA_T)
 #define HRM_S       LSFT_T(CA_S)
@@ -25,6 +26,7 @@
 #define HRM_C       LCTL_T(CA_C)
 #define HRM_H       LALT_T(CA_H)
 #define HRM_V       LGUI_T(CA_V)
+#define HRM_REPW    LT(WIN, QK_REP)
 
 #define HRM_0       LT(SYM, CA_0)
 #define HRM_2       LSFT_T(CA_2)
@@ -462,7 +464,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CA_Z,         CA_J,         CA_O,         CA_EACU,      CA_B,           CA_F,        CA_D,          CA_L,         CA_QUOT,      CA_X,
         CA_A,         CA_I,         HRM_E,        HRM_U,        CA_COMM,        CA_P,        HRM_T,         HRM_S,        HRM_R,        HRM_N,
         HRM_K,        HRM_Y,        CA_EGRV,      HRM_DOT,      CA_W,           CA_G,        HRM_C,         CA_M,         HRM_H,        HRM_V,
-                                    MO(NAV),      HRM_BSPC,     HRM_DEL,        MO(NUM),     KC_SPC,        MO(WIN)
+                                    HRM_REPN,     HRM_BSPC,     HRM_DEL,        MO(NUM),     KC_SPC,        HRM_REPW
     ),
 
     [CIRC] = LAYOUT_split_3x5_3(
