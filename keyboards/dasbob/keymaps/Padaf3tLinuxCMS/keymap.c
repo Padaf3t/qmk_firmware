@@ -9,32 +9,36 @@
 #define FUN 5
 #define NAV 6
 
+#define HRM_COM     LT(NUM, CA_COMM)
 #define HRM_U       LT(SYM, CA_U)   
-#define HRM_E       LSFT_T(CA_E)   
+#define HRM_E       LSFT_T(CA_E)
+#define HRM_I       LT(NUM, CA_I)
 #define HRM_K       LGUI_T(CA_K)
 #define HRM_Y       LALT_T(CA_Y)
 #define HRM_DOT     LCTL_T(CA_DOT)
-#define HRM_BSPC    LT(FUN, KC_BSPC)
-#define HRM_DEL     LT(NUM, KC_DEL)
+#define HRM_BSP     LT(FUN, KC_BSPC)
+#define HRM_DEL     LT(NAV, KC_DEL)
 
+#define HRM_P       LT(TREM, CA_P)
 #define HRM_T       LT(SYM, CA_T)
 #define HRM_S       RSFT_T(CA_S)
-#define HRM_R       LT(TREM, CA_R)
+#define HRM_R       LT(NUM, CA_R)
 #define HRM_N       LT(CIRC, CA_N)
 #define HRM_C       LCTL_T(CA_C)
 #define HRM_H       LALT_T(CA_H)
 #define HRM_V       LGUI_T(CA_V)
-#define HRM_REP     LT(NAV, QK_REP)
+#define HRM_LEA     LT(NAV, QK_LEAD)
+#define HRM_LCK     LT(NAV, QK_LLCK)
 
 #define HRM_0       LT(SYM, CA_0)
 #define HRM_2       LSFT_T(CA_2)
-#define HRM_SPC     LCTL_T(KC_SPC)
 #define HRM_1       LT(SYM, CA_1)
 #define HRM_3       LSFT_T(CA_3)
 
 #define HRM_F2      LSFT_T(KC_F2)
 #define HRM_F3      LSFT_T(KC_F3)
 #define TSK_MAN     C(S(KC_ESC))
+#define CTAL_DE     C(A(KC_DEL))
 
 //MACRO
 enum custom_keycodes {
@@ -69,7 +73,7 @@ enum custom_keycodes {
     DBLQTE,
     SGLQTE,
 
-    CTRLSHFT,
+    CTLSHFT,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -370,7 +374,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case CTRLSHFT:  
+    case CTLSHFT:  
         if (record->event.pressed) {  
             register_code(KC_LCTL);
             register_code(KC_LSFT);
@@ -456,51 +460,51 @@ const custom_shift_key_t custom_shift_keys[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [BASE] = LAYOUT_split_3x5_3(
-        CA_Z,         CA_J,         CA_O,         CA_EACU,      CA_B,           CA_F,        CA_D,          CA_L,         CA_QUOT,      CA_X,
-        CA_A,         CA_I,         HRM_E,        HRM_U,        CA_COMM,        CA_P,        HRM_T,         HRM_S,        HRM_R,        HRM_N,
-        HRM_K,        HRM_Y,        CA_EGRV,      HRM_DOT,      CA_W,           CA_G,        HRM_C,         CA_M,         HRM_H,        HRM_V,
-                                    HRM_REP,      HRM_BSPC,     HRM_DEL,        MO(NUM),     KC_SPC,        HRM_REP
+        CA_Z,     CA_J,     CA_O,     CA_EACU,  CA_B,           CA_F,     CA_D,     CA_L,     CA_QUOT,  CA_X,
+        CA_A,     HRM_I,    HRM_E,    HRM_U,    CA_COMM,        HRM_P,    HRM_T,    HRM_S,    HRM_R,    HRM_N,
+        HRM_K,    HRM_Y,    CA_EGRV,  HRM_DOT,  CA_W,           CA_G,     HRM_C,    CA_M,     HRM_H,    HRM_V,
+                            QK_REP,   HRM_BSP,  HRM_DEL,        HRM_LEA,  KC_SPC,   QK_REP
     ),
 
     [CIRC] = LAYOUT_split_3x5_3(
-        _______,      _______,      OCIRC,        _______,      _______,        _______,     _______,       _______,      _______,      _______,
-        ACIRC,        ICIRC,        ECIRC,        UCIRC,        CA_DEG,         _______,     _______,       _______,      _______,      _______, 
-        _______,      YCIRC,        CA_LDAQ,      CA_RDAQ,      _______,        _______,     _______,       _______,      _______,      _______,
-                                    _______,      _______,      _______,        _______,     _______,       _______
+        _______,  _______,  OCIRC,    _______,  _______,        _______,  _______,  _______,  _______,  _______,
+        ACIRC,    ICIRC,    ECIRC,    UCIRC,    CA_DEG,         _______,  _______,  _______,  _______,  _______, 
+        _______,  YCIRC,    CA_LDAQ,  CA_RDAQ,  _______,        _______,  _______,  _______,  _______,  _______,
+                            _______,  _______,  _______,        HRM_LEA,  _______,  _______
     ), 
 
     [TREM] = LAYOUT_split_3x5_3(
-        _______,      _______,      OTREM,        _______,      _______,        _______,     _______,       _______,      _______,      _______,
-        ATREM,        ITREM,        ETREM,        UTREM,        CA_DEG,         _______,     _______,       _______,      _______,      _______, 
-        _______,      YTREM,        CA_LDAQ,      CA_RDAQ,      _______,        _______,     _______,       _______,      _______,      _______,
-                                    _______,      _______,      _______,        _______,     _______,       _______
+        _______,  _______,  OTREM,    _______,  _______,        _______,  _______,  _______,  _______,  _______,
+        ATREM,    ITREM,    ETREM,    UTREM,    CA_DEG,         _______,  _______,  _______,  _______,  _______, 
+        _______,  YTREM,    CA_LDAQ,  CA_RDAQ,  _______,        _______,  _______,  _______,  _______,  _______,
+                            _______,  _______,  _______,        HRM_LEA,  _______,  _______
     ),
 
     [NUM] = LAYOUT_split_3x5_3(
-        _______,      _______,      _______,      _______,       _______,        _______,     _______,       _______,     _______,      _______,
-        CA_6,         CA_4,         HRM_2,        HRM_0,         CA_8,           CA_9,        HRM_1,         HRM_3,       CA_5,         CA_7,
-        KC_LGUI,      KC_LALT,      _______,      HRM_SPC,       _______,        _______,     HRM_SPC,       _______,     KC_LALT,      KC_LGUI,
-                                    _______,      _______,       _______,        _______,     _______,       _______
+        _______,  _______,  _______,  _______,  _______,        _______,  _______,  _______,  _______,  _______,
+        CA_6,     CA_4,     HRM_2,    HRM_0,    CA_8,           CA_9,     HRM_1,    HRM_3,    CA_5,     CA_7,
+        KC_LGUI,  KC_LALT,  _______,  KC_LCTL,  _______,        _______,  KC_LCTL,  _______,  KC_LALT,  KC_LGUI,
+                            _______,  _______,  _______,        HRM_LCK,  _______,  _______
     ),
 
     [SYM] = LAYOUT_split_3x5_3(
-        GRAVE,        CA_LABK,      CA_RABK,      CA_DQUO,      CA_QUOT,        CA_AMPR,     CA_SCLN,       CA_LBRC,      CA_RBRC,      CA_PERC,
-        CA_EXLM,      CA_MINS,      CA_PLUS,      CA_EQL,       CA_HASH,        CA_PIPE,     CA_COLN,       CA_LPRN,      CA_RPRN,      CA_QUES,
-        CIRCON,       CA_SLSH,      CA_ASTR,      CA_BSLS,      BACKDIR,        TILDE,       CA_DLR,        CA_LCBR,      CA_RCBR,      CA_AT,
-                                    _______,      _______,      _______,        _______,     _______,       _______
+        GRAVE,    CA_LABK,  CA_RABK,  CA_DQUO,  CA_QUOT,        CA_AMPR,  CA_SCLN,  CA_LBRC,  CA_RBRC,  CA_PERC,
+        CA_EXLM,  CA_MINS,  CA_PLUS,  CA_EQL,   CA_HASH,        CA_PIPE,  CA_COLN,  CA_LPRN,  CA_RPRN,  CA_QUES,
+        CIRCON,   CA_SLSH,  CA_ASTR,  CA_BSLS,  BACKDIR,        TILDE,    CA_DLR,   CA_LCBR,  CA_RCBR,  CA_AT,
+                            _______,  _______,  _______,        HRM_LCK,  _______,  _______
     ),
 
     [FUN] = LAYOUT_split_3x5_3(
-        C(A(KC_DEL)), TSK_MAN,      _______,      KC_F12,        _______,       _______,      KC_F11,        _______,     _______,      _______,
-        KC_F6,        KC_F4,        HRM_F2,       KC_F10,        KC_F8,         KC_F9,        KC_F1,         HRM_F3,      KC_F5,        KC_F7,
-        KC_LGUI,      KC_LALT,      _______,      KC_LCTL,       KC_PSCR,       KC_APP,       KC_LCTL,       _______,     KC_LALT,      KC_LGUI,
-                                    _______,      _______,       _______,       _______,      _______,       _______
+        CTAL_DE,  TSK_MAN,  _______,  KC_F12,   _______,        _______,  KC_F11,   _______,  _______,  _______,
+        KC_F6,    KC_F4,    HRM_F2,   KC_F10,   KC_F8,          KC_F9,    KC_F1,    HRM_F3,   KC_F5,    KC_F7,
+        KC_LGUI,  KC_LALT,  _______,  KC_LCTL,  KC_PSCR,        KC_APP,   KC_LCTL,  _______,  KC_LALT,  KC_LGUI,
+                            _______,  _______,  _______,        HRM_LCK,  _______,  _______
     ),
 
     [NAV] = LAYOUT_split_3x5_3(
-        _______,      _______,      _______,      _______,       _______,       _______,      KC_HOME,       KC_PGUP,     KC_PGDN,      KC_END,
-        KC_LGUI,      KC_LALT,      KC_LSFT,      KC_LCTL,       CTRLSHFT,      QK_LLCK,      KC_LEFT,       KC_UP,       KC_DOWN,      KC_RGHT, 
-        PF_UNDO,      PF_CUT,       PF_COPY,      PF_PSTE,       PF_REDO,       PF_SLTA,      SELWBAK,       SELWORD,     SELLINE,      KC_INS,
-                                    _______,      _______,       _______,       _______,      _______,       _______
+        _______,  _______,  _______,  _______,  _______,        _______,  KC_HOME,  KC_PGUP,  KC_PGDN,  KC_END,
+        KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  CTLSHFT,        _______,  KC_LEFT,  KC_UP,    KC_DOWN,  KC_RGHT,
+        PF_UNDO,  PF_CUT,   PF_COPY,  PF_PSTE,  PF_REDO,        PF_SLTA,  SELWBAK,  SELWORD,  SELLINE,  KC_INS,
+                            _______,  _______,  _______,        QK_LLCK,  _______,  _______
     ),
 };
