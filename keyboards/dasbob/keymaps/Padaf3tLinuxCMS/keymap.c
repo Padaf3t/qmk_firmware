@@ -33,10 +33,10 @@
 #define HRM_0       LT(SYM, CA_0)
 #define HRM_2       LSFT_T(CA_2)
 #define HRM_1       LT(SYM, CA_1)
-#define HRM_3       LSFT_T(CA_3)
+#define HRM_3       RSFT_T(CA_3)
 
 #define HRM_F2      LSFT_T(KC_F2)
-#define HRM_F3      LSFT_T(KC_F3)
+#define HRM_F3      RSFT_T(KC_F3)
 #define TSK_MAN     C(S(KC_ESC))
 #define CTAL_DE     C(A(KC_DEL))
 
