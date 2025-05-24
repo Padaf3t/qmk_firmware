@@ -451,8 +451,8 @@ combo_t key_combos[] = {
 };
 
 const custom_shift_key_t custom_shift_keys[] = {
-    {HRM_DOT , CA_QUES}, // Shift . is ?
-    {CA_COMM, CA_EXLM}, // Shift , is !
+    {HRM_DOT , HRM_DOT}, // Shift . is .
+    {CA_COMM, CA_COMM}, // Shift , is ,
     {CA_QUOT, CA_QUOT}, // Shift ' is '
     {CA_DEG, CA_COPY}, // Shift ° is ©
 };
