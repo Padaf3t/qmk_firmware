@@ -10,11 +10,12 @@
 #define NAV 6
 
 #define HRM_COM     LT(NUM, CA_COMM)
-#define HRM_U       LT(SYM, CA_U)   
+#define HRM_U       LT(SYM, CA_U)
 #define HRM_E       LSFT_T(CA_E)
 #define HRM_I       LT(NUM, CA_I)
 #define HRM_K       LGUI_T(CA_K)
 #define HRM_Y       LALT_T(CA_Y)
+#define HRM_EGR     MEH(CA_EGRV)
 #define HRM_DOT     LCTL_T(CA_DOT)
 #define HRM_BSP     LT(FUN, KC_BSPC)
 #define HRM_DEL     LT(NAV, KC_DEL)
@@ -25,6 +26,7 @@
 #define HRM_R       LT(NUM, CA_R)
 #define HRM_N       LT(CIRC, CA_N)
 #define HRM_C       LCTL_T(CA_C)
+#define HRM_M       MEH(CA_M)
 #define HRM_H       LALT_T(CA_H)
 #define HRM_V       LGUI_T(CA_V)
 #define HRM_LEA     LT(NAV, QK_LEAD)
@@ -126,7 +128,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
-    
+
     case OCIRC:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
@@ -217,7 +219,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
-    
+
     case OTREM:
         if (record->event.pressed) {
             if(mod_state & MOD_MASK_SHIFT){
@@ -286,7 +288,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
-    
+
     case BACKDIR:
         if(record->event.pressed) {
             tap_code16(CA_DOT);
@@ -319,7 +321,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         break;
-    
+
     case ANGLEB:
         if(record->event.pressed) {
             tap_code16(CA_LABK);
@@ -374,8 +376,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case CTLSHFT:  
-        if (record->event.pressed) {  
+    case CTLSHFT:
+        if (record->event.pressed) {
             register_code(KC_LCTL);
             register_code(KC_LSFT);
         } else {
@@ -392,8 +394,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM combo_esc[] =        {CA_J, CA_O, CA_EACU, COMBO_END};
 const uint16_t PROGMEM combo_tab[] =        {CA_J, CA_O, COMBO_END};
 const uint16_t PROGMEM combo_agrv[] =       {CA_O, CA_EACU, COMBO_END};
-const uint16_t PROGMEM combo_underline[] =  {HRM_Y, CA_EGRV, COMBO_END};
-const uint16_t PROGMEM combo_dash[] =       {CA_EGRV, HRM_DOT, COMBO_END};
+const uint16_t PROGMEM combo_underline[] =  {HRM_Y, HRM_EGR, COMBO_END};
+const uint16_t PROGMEM combo_dash[] =       {HRM_EGR, HRM_DOT, COMBO_END};
 const uint16_t PROGMEM combo_cced[] =       {HRM_C, CA_M, COMBO_END};
 const uint16_t PROGMEM combo_ugrv[] =       {CA_M, HRM_H, COMBO_END};
 const uint16_t PROGMEM combo_q[] =          {CA_D, CA_L, COMBO_END};
@@ -455,6 +457,8 @@ const custom_shift_key_t custom_shift_keys[] = {
     {CA_COMM, CA_COMM}, // Shift , is ,
     {CA_QUOT, CA_QUOT}, // Shift ' is '
     {CA_DEG, CA_COPY}, // Shift ° is ©
+    {CA_UNDS, CA_UNDS},// Shift _ is _
+    {CA_MINS, CA_MINS} // Shift - is -
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -462,20 +466,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x5_3(
         CA_Z,     CA_J,     CA_O,     CA_EACU,  CA_B,           CA_F,     CA_D,     CA_L,     CA_QUOT,  CA_X,
         CA_A,     HRM_I,    HRM_E,    HRM_U,    CA_COMM,        HRM_P,    HRM_T,    HRM_S,    HRM_R,    HRM_N,
-        HRM_K,    HRM_Y,    CA_EGRV,  HRM_DOT,  CA_W,           CA_G,     HRM_C,    CA_M,     HRM_H,    HRM_V,
+        HRM_K,    HRM_Y,    HRM_EGR,  HRM_DOT,  CA_W,           CA_G,     HRM_C,    HRM_M,    HRM_H,    HRM_V,
                             QK_REP,   HRM_BSP,  HRM_DEL,        HRM_LEA,  KC_SPC,   QK_REP
     ),
 
     [CIRC] = LAYOUT_split_3x5_3(
         _______,  _______,  OCIRC,    _______,  _______,        _______,  _______,  _______,  _______,  _______,
-        ACIRC,    ICIRC,    ECIRC,    UCIRC,    CA_DEG,         _______,  _______,  _______,  _______,  _______, 
+        ACIRC,    ICIRC,    ECIRC,    UCIRC,    CA_DEG,         _______,  _______,  _______,  _______,  _______,
         _______,  YCIRC,    CA_LDAQ,  CA_RDAQ,  _______,        _______,  _______,  _______,  _______,  _______,
                             _______,  _______,  _______,        HRM_LEA,  _______,  _______
-    ), 
+    ),
 
     [TREM] = LAYOUT_split_3x5_3(
         _______,  _______,  OTREM,    _______,  _______,        _______,  _______,  _______,  _______,  _______,
-        ATREM,    ITREM,    ETREM,    UTREM,    CA_DEG,         _______,  _______,  _______,  _______,  _______, 
+        ATREM,    ITREM,    ETREM,    UTREM,    CA_DEG,         _______,  _______,  _______,  _______,  _______,
         _______,  YTREM,    CA_LDAQ,  CA_RDAQ,  _______,        _______,  _______,  _______,  _______,  _______,
                             _______,  _______,  _______,        HRM_LEA,  _______,  _______
     ),
