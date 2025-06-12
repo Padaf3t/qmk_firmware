@@ -37,6 +37,19 @@
 #define HRM_1       LT(SYM, CA_1)
 #define HRM_3       RSFT_T(CA_3)
 
+#define WS_1        G(CA_1)
+#define WS_2        G(CA_2)
+#define WS_3        G(CA_3)
+#define WS_4        G(CA_4)
+#define WS_5        G(CA_5)
+#define WS_6        G(CA_6)
+#define WS_7        G(CA_7)
+#define WS_8        G(CA_8)
+#define WS_9        G(CA_9)
+#define WS_10       G(CA_0)
+#define MN_V        G(S(KC_LEFT))
+#define MN_H        G(S(KC_RGHT))
+
 #define HRM_F2      LSFT_T(KC_F2)
 #define HRM_F3      RSFT_T(KC_F3)
 #define TSK_MAN     C(S(KC_ESC))
@@ -485,9 +498,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [NUM] = LAYOUT_split_3x5_3(
-        _______,  _______,  _______,  _______,  _______,        _______,  _______,  _______,  _______,  _______,
+        WS_1,     WS_2,     WS_3,     WS_4,     MN_V,           MN_H,     WS_5,     WS_6,     WS_7,     WS_8,
         CA_6,     CA_4,     HRM_2,    HRM_0,    CA_8,           CA_9,     HRM_1,    HRM_3,    CA_5,     CA_7,
-        KC_LGUI,  KC_LALT,  _______,  KC_LCTL,  _______,        _______,  KC_LCTL,  _______,  KC_LALT,  KC_LGUI,
+        KC_LGUI,  KC_LALT,  KC_MEH,   KC_LCTL,  WS_9,           WS_10,    KC_LCTL,  KC_MEH,   KC_LALT,  KC_LGUI,
                             _______,  _______,  _______,        HRM_LCK,  _______,  _______
     ),
 
@@ -501,14 +514,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [FUN] = LAYOUT_split_3x5_3(
         CTAL_DE,  TSK_MAN,  _______,  KC_F12,   _______,        _______,  KC_F11,   _______,  _______,  _______,
         KC_F6,    KC_F4,    HRM_F2,   KC_F10,   KC_F8,          KC_F9,    KC_F1,    HRM_F3,   KC_F5,    KC_F7,
-        KC_LGUI,  KC_LALT,  _______,  KC_LCTL,  KC_PSCR,        KC_APP,   KC_LCTL,  _______,  KC_LALT,  KC_LGUI,
+        KC_LGUI,  KC_LALT,  KC_MEH,   KC_LCTL,  KC_PSCR,        KC_APP,   KC_LCTL,  KC_MEH,   KC_LALT,  KC_LGUI,
                             _______,  _______,  _______,        HRM_LCK,  _______,  _______
     ),
 
     [NAV] = LAYOUT_split_3x5_3(
-        _______,  _______,  _______,  _______,  _______,        _______,  KC_HOME,  KC_PGUP,  KC_PGDN,  KC_END,
-        KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  CTLSHFT,        _______,  KC_LEFT,  KC_UP,    KC_DOWN,  KC_RGHT,
-        PF_UNDO,  PF_CUT,   PF_COPY,  PF_PSTE,  PF_REDO,        PF_SLTA,  SELWBAK,  SELWORD,  SELLINE,  KC_INS,
+        PF_UNDO,  PF_CUT,   PF_COPY,  PF_PSTE,  PF_REDO,        _______,  KC_HOME,  KC_PGUP,  KC_PGDN,  KC_END,
+        KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  CTLSHFT,        KC_ENTER, KC_LEFT,  KC_UP,    KC_DOWN,  KC_RGHT,
+        _______,  _______,  KC_MEH,   _______,  _______,        PF_SLTA,  SELWBAK,  SELWORD,  SELLINE,  KC_INS,
                             _______,  _______,  _______,        QK_LLCK,  _______,  _______
     ),
 };
